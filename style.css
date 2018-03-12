@@ -1,0 +1,107 @@
+/*
+ Theme Name:   Anud Publisho
+ Theme URI:    http://comsep.ru/anud-publisho/
+ Description:  Anud Publisho Theme (Publisho Child)
+ Author:       Vitaliy Shiegin
+ Author URI:   http://comsep.ru
+ Template:     publisho
+ Version:      0.0.1
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         
+ Text Domain:  anud-publisho
+*/
+
+.entry-content .attachment-post-thumbnail {
+    -display: none;
+}
+
+.tribe-bar-disabled {
+    display: none;
+}
+
+#site-navigation {
+    box-shadow: none;
+}
+
+/*
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,800&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Kurale&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Vollkorn:400,900&subset=cyrillic');
+
+@import url('https://fonts.googleapis.com/css?family=Ledger&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif+Caption&subset=cyrillic');
+
+
+.site-title {
+    -font-family: 'Montserrat', sans-serif;
+    -font-family: 'Montserrat Alternates', sans-serif;
+    -font-family: 'Kurale', serif;
+    font-family: 'Vollkorn', serif;
+
+    -font-family: 'Ledger', serif;
+    -font-family: 'PT Serif', serif;
+    -font-family: 'PT Serif Caption', serif;
+
+    font-weight: normal !important;
+    text-transform: none;
+    -text-shadow: 0px 0px 15px red;
+    -text-shadow: 0px 0px 15px yellow;
+    -text-shadow: 2px 2px 15px #ee8822;
+    text-shadow: 1px 1px 2px black, 2px 2px 15px #ee9933;
+    -text-shadow: 0px 0px 2px black, 0px 0px 15px red;
+    -text-shadow: 0px 0px 2px black;
+}
+
+.site-description {
+    font-family: 'Vollkorn', serif;
+}
+
+.menu-item {
+    font-family: 'Vollkorn', serif;
+}
+
+
+.site-content {
+    padding: 10px 0 !important;
+}
+
+h1.entry-title {
+    font-size: 36px !important;
+}
+
+.entry-header {
+    margin: 0px 0px !important;
+}
+
+.panel-content .wrap {
+    padding: 10px 0 !important;
+}
+
+*/
+
+
+
+
+/*
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Prata&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Kurale&subset=cyrillic');
+
+
+.content {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+        font-family: "Open Sans", sans-serif;
+}
+
+.mythemes-page-header nav li:first-child:before{
+    padding: 0px;
+}
+*/
