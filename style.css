@@ -5,7 +5,7 @@
  Author:       Vitaliy Shiegin
  Author URI:   http://comsep.ru
  Template:     publisho
- Version:      0.0.1
+ Version:      0.0.2
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         
@@ -105,3 +105,188 @@ h1,h2,h3,h4,h5,h6 {
     padding: 0px;
 }
 */
+
+/*
+.hhome-menu {
+    background-image: url('http://www.example.com/wp-content/uploads/2014/12/home.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 5px;
+}
+*/
+
+ .lang_flag img {
+     width: 140%;
+ }
+
+/*
+.top-notice {
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } };
+    @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } };
+    ooopacity:0;
+}
+*/
+
+/*
+.top-notice {
+    text-decoration: underline !important;
+    color: green;
+}
+.top-notice a {
+    text-decoration: underline !important;
+    color: green !important;
+}
+*/
+
+.top-notice {
+    height: 100%;
+    bborder: thin solid red;
+    line-height: 125%;
+    -line-height: 170%;
+}
+
+.top-notice .top-notice-title {
+    color: #d02030;
+    font-weight: bold;
+}
+
+.top-notice li {
+    -margin: 5px;
+    -border: thin solid red;
+    list-style: disc;
+}
+
+.top-notice li.top-notice-prize {
+    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/ostryakov_medal_12x12.png');
+}
+.top-notice li.top-notice-anud {
+    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/anud_logo_12x12.png');
+}
+
+.top-notice a {
+    -text-decoration: underline !important;
+    сcolor: green !important;
+}
+
+.themonic-logo {
+    padding: 12px;
+}
+
+
+
+/*
+.menu-item-with-medal > a {
+    position: relative;
+    padding-left: 22px !important;
+}
+.menu-item-with-medal > a:before {
+    position: absolute;
+    top: 4px;
+    left: 2px;
+    content:url('https://acanud.ru/wp-content/uploads/2019/02/ostryakov_medal_18x18.png')
+}
+*/
+
+
+h1.entry-title {
+    padding-top: 20px !important;
+    padding-bottom: 15px !important;
+}
+
+.entry-content h2,
+.entry-content h3 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+
+h1.entry-title,
+h2.entry-title,
+.entry-content h2,
+.entry-content h3 {
+    -opacity: 0.6 !important;
+    -text-transform: uppercase !important;
+    color: #07345b;
+}
+
+
+
+.widget_nav_menu .current_page_item,
+.widget_categories .current-cat {
+    -background-color: #07345b;
+    -background-color: #0099ff;
+    color: #ffffff !important;
+}
+.widget_nav_menu .current_page_item a,
+.widget_categories .current-cat a {
+    -background-color: #07345b;
+    background-color: #0099ff;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+.widget_nav_menu .menu-item-object-page,
+.widget_categories .cat-item {
+    padding: 0px!important;
+}
+.widget_nav_menu .menu-item-object-page a,
+.widget_categories .cat-item a {
+    text-transform: uppercase;
+    ppadding-left: 7px;
+    padding: 7px;
+    -display: inline-block;
+    display: block;
+    font-size: 12px!important;
+}
+.widget_nav_menu .menu-item-object-page a:hover,
+.widget_categories .cat-item a:hover {
+    color: #ffffff !important;
+    background-color: #0099ff !important;
+}
+/*
+.menu-item-object-page a:hover {
+    color: #ffffff !important;
+    background-color: #0099ff!important;
+}
+*/
+
+/*
+.top-menu .current-page-ancestor,
+.top-menu .current-menu-item {
+    background-color: #0099ff !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
+.top-menu .current-page-ancestor a,
+.top-menu .current-menu-item a {
+    background-color: #0099ff !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
+*/
+
+/*
+.top-menu .current-menu-item {
+    background-color: #0099ff !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
+.top-menu .current-menu-item a {
+    background-color: #0099ff !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
+*/
+
+
+#main.wrapper {
+    position: relative!important;
+}
+.wwidget-area {
+    position: sticky;
+    top: 0;
+}
+
+#recent-posts-2 {
+    position: sticky!important;
+    top: 0!important;
+}

@@ -49,6 +49,9 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 	</nav><!-- #site-navigation -->
 	<div class="clear"></div>
 	<header id="masthead" class="site-header" role="banner">
+
+		<!--div><?php // if ( function_exists( 'the_msls' ) ) the_msls(); ?></div-->
+
 			<?php if ( get_theme_mod( 'custom_logo' ) ) : ?>
 		
 		<div class="themonic-logo">
@@ -66,25 +69,44 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 			</div>
 		<?php endif; ?>
 	<div class="publisho-mobile-nav clear"></div>
-		<nav id="site-navigation" class="themonic-nav" role="navigation">
-			<!--a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'publisho' ); ?>"><?php esc_html_e( 'Skip to content', 'publisho' ); ?></a-->
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'menu-top', 'menu_class' => 'nav-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
+		<!--nav id="ssite-navigation" class="themonic-nav" role="navigation">
+			<?php // wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'menu-top', 'menu_class' => 'nav-menu' ) ); ?>
+		</nav-->
+
+		<nav id="site-navigation" class="themonic-nav" role="navigation" style="bborder: thin solid red; position: relative;">
+			<div class="menu-primary-container">
+<?php if(  is_front_page() /*is_home()*/ ) { ?>
+				<div class="lang_flag" style="bborder: thin solid green; position: absolute; right: 20px; top: 16px;"><?php if ( function_exists( 'the_msls' ) ) the_msls(); ?></div>
+<?php } ?>
+				<?php wp_nav_menu(array('container'=>false, 'theme_location' => 'primary', 'menu_id' => 'menu-top', 'menu_class' => 'nav-menu')) ?>
+			</div>
+		</nav>
+
+		<!-- #site-navigation -->
+
 		<div class="clear"></div>
 
-<?php /*
-if ( function_exists('yoast_breadcrumb') ) {
-yoast_breadcrumb('
-<p id="breadcrumbs">','</p>
-');
-}
-*/ ?>
-<?php if(function_exists('bcn_display') && !is_home()) { ?>
+<?php if(function_exists('bcn_display') && !is_front_page() /*is_home()*/ ) { ?>
+<?php if ( function_exists('yoast_breadcrumb') && !is_front_page() ) { ?>
 <div id="breadcrumbs" class="breadcrumbs" style="background-color: #eee; ccolor: white;">
-<div class="-container -themonic-nav" style="padding: 5px 20px; font-size: 80%;">
+<div class="-container -themonic-nav" style="padding: 10px 20px; ffont-size: 80%; bborder: thin solid red; position: relative;">
+	<div class="lang_flag" style="bborder: thin solid green; position: absolute; right: 20px; top: 10px;"><?php if ( function_exists( 'the_msls' ) ) the_msls(); ?></div>
 	<?php bcn_display(); ?>
+	<?php //yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
+
+<?php
+//$post = $GLOBALS['post'];
+//echo $post->ID;
+//echo get_post_meta($post->ID, '_yoast_wpseo_metadesc', true);
+//echo get_post_meta($post->ID, '_yoast_wpseo_title', true); 
+//print_r( get_post_meta($post->ID, null, true) );
+//print get_post_meta($post->ID, '_yoast_wpseo_bctitle', true);
+//print_r( get_post_meta($post->ID, '_yoast_wpseo_bctitle', true) );
+?>
+
 </div>
 </div>
+<?php } ?>
 <?php } ?>
 	</header><!-- #masthead -->
 
