@@ -225,11 +225,13 @@ h2.entry-title,
     font-weight: bold;
 }
 .widget_nav_menu .menu-item-object-page,
-.widget_categories .cat-item {
+.widget_categories .cat-item,
+.widget_nav_menu .menu-item {
     padding: 0px!important;
 }
 .widget_nav_menu .menu-item-object-page a,
-.widget_categories .cat-item a {
+.widget_categories .cat-item a,
+.widget_nav_menu .menu-item a {
     text-transform: uppercase;
     ppadding-left: 7px;
     padding: 7px;
@@ -238,7 +240,8 @@ h2.entry-title,
     font-size: 12px!important;
 }
 .widget_nav_menu .menu-item-object-page a:hover,
-.widget_categories .cat-item a:hover {
+.widget_categories .cat-item a:hover,
+.widget_nav_menu .menu-item a:hover {
     color: #ffffff !important;
     background-color: #0099ff !important;
 }
