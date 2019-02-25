@@ -58,10 +58,7 @@ add_filter( 'tribe_events_title_tag', 'filter_events_title' );
 
 
 function filter_bcn_breadcrumb_title( $title, $this_type, $this_id ) { 
-    // post-tribe_events-archive
-
     if ( in_array( 'post-tribe_events-archive', $this_type ) ) {
-//		$title = 'Календарь';
 		$title = __( 'Calendar', 'the-events-calendar' );
 	}
     $t = get_post_meta($this_id, '_yoast_wpseo_bctitle', true);

@@ -33,7 +33,7 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 </head>
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<div class="publisho-top-mobile-nav clear"></div>
+	<div class="0-publisho-top-mobile-nav clear"></div>
 	<nav id="site-navigation" class="themonic-nav" role="navigation">
 		<div class="th-topwrap clear">
 			<?php if ( has_nav_menu( 'tophead' ) ) { ?>	
@@ -68,15 +68,15 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 				<a class="site-description clear"><?php bloginfo( 'description' ); ?></a>
 			</div>
 		<?php endif; ?>
-	<div class="publisho-mobile-nav clear"></div>
+	<div class="0-publisho-mobile-nav clear"></div>
 		<!--nav id="ssite-navigation" class="themonic-nav" role="navigation">
 			<?php // wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'menu-top', 'menu_class' => 'nav-menu' ) ); ?>
 		</nav-->
 
-		<nav id="site-navigation" class="themonic-nav" role="navigation" style="bborder: thin solid red; position: relative;">
+		<nav id="site-navigation" class="themonic-nav" role="navigation" style="-border: thin solid red; position: relative;">
 			<div class="menu-primary-container">
 <?php if(  is_front_page() /*is_home()*/ ) { ?>
-				<div class="lang_flag" style="bborder: thin solid green; position: absolute; right: 20px; top: 16px;"><?php if ( function_exists( 'the_msls' ) ) the_msls(); ?></div>
+				<div class="lang_flag lang_flag_desktop" style="bborder: thin solid green; position: absolute; right: 20px; top: 16px;"><?php if ( function_exists( 'the_msls' ) ) the_msls(); ?></div>
 <?php } ?>
 				<?php wp_nav_menu(array('container'=>false, 'theme_location' => 'primary', 'menu_id' => 'menu-top', 'menu_class' => 'nav-menu')) ?>
 			</div>
@@ -90,7 +90,7 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 <?php if ( function_exists('yoast_breadcrumb') && !is_front_page() ) { ?>
 <div id="breadcrumbs" class="breadcrumbs" style="background-color: #eee; ccolor: white;">
 <div class="-container -themonic-nav" style="padding: 10px 20px; ffont-size: 80%; bborder: thin solid red; position: relative;">
-	<div class="lang_flag" style="bborder: thin solid green; position: absolute; right: 20px; top: 10px;"><?php if ( function_exists( 'the_msls' ) ) the_msls(); ?></div>
+	<div class="lang_flag lang_flag_desktop" style="bborder: thin solid green; position: absolute; right: 20px; top: 10px;"><?php if ( function_exists( 'the_msls' ) ) the_msls(); ?></div>
 	<?php bcn_display(); ?>
 	<?php //yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
 
@@ -110,4 +110,4 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 <?php } ?>
 	</header><!-- #masthead -->
 
-	<div id="main" class="wrapper">
+	<div id="main" class="wrapper <?= is_front_page() ? "frontpage" :"" ?>">
