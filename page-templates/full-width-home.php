@@ -36,6 +36,103 @@ get_header(); ?>
 <?php //$catname = esc_attr( get_theme_mod( 'publisho_top_posts' )); ?>
 <?php $catname = "latest"; ?>
 <?php if ( is_front_page() ) : ?>
+	<div class="fp-cat-gazeta">
+		<ul class="fp-news-container">
+
+
+
+
+         <li class="fp-news-item">
+			<div class="gazeta-img-box box-collapsable" style="position: relative; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);">
+				<div class="-catpostimage">
+					<?php //the_post_thumbnail('publisho-large', 'class=gazeta-img'); ?>
+					<!--img class=gazeta-img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>"-->
+				</div>
+					<div style="-z-index: 1; -height: 30%; -text-align: center; -position: absolute; position: relative; top: 0; -border: thin solid green; padding: 3%; -background-color: rgba(220,220,220,0.9);">
+						<h3 class="entry-title">
+							Календарь мероприятий
+						</h3>
+						<ul style="margin: 5px 0px 5px 10px;">
+							<?php
+$events = tribe_get_events( array( 
+   'posts_per_page' => 5, 
+   'start_date'     => date( 'Y-m-d H:i:s' )
+) );
+foreach ( $events as $event ) {
+?>
+							<li style="list-style: disc; margin: 10px;"><b><?php
+								$event_start_date = tribe_get_start_date( $event );
+								$event_end_date = tribe_get_end_date( $event );
+								echo $event_start_date==$event_end_date ?
+									$event_start_date :
+									$event_start_date."&mdash;".$event_end_date
+							?></b>: <a href="<?php echo get_permalink($event) ?>"><?php
+								//echo $event->post_title
+								echo get_post_shorter_title($event->ID);
+							?></a></li>
+<?
+}
+							?>
+						</ul>
+					</div>
+			</div>
+	    </li>
+
+
+
+         <li class="fp-news-item">
+			<div class="gazeta-img-box box-collapsable" style="position: relative; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);">
+					<div style="-z-index: 1; -height: 30%; -text-align: center; -position: absolute; position: relative; top: 0; -border: thin solid green; padding: 3%; -background-color: rgba(220,220,220,0.9);">
+						<h3 class="entry-title">
+							Журнал "Гироскопия и навигация"
+						</h3>
+						<ul style="margin: 5px 0px 5px 10px;">
+							<li style="list-style: disc; margin: 10px;">
+								<a href="/journal">О журнале</a>
+							</li>
+							<li style="list-style: disc; margin: 10px;">
+								<a target="_blank" href="https://gn.comsep.ru">Подать статью</a>
+							</li>
+							<li style="list-style: disc; margin: 10px;">
+								<a target="_blank" href="http://www.elektropribor.spb.ru/nauchnaya-deyatelnost/zhurnal/elektronnaya-versiya/">Читать</a>
+							</li>
+						</ul>
+					</div>
+			</div>
+	    </li>
+
+
+
+
+
+		<?php
+			//$query = new WP_Query("category_name=$catname&showposts=4");
+			$query = new WP_Query("showposts=6");
+			while ($query->have_posts()) : $query->the_post();
+			$do_not_duplicate[] = get_the_ID();
+		?>
+         <li class="fp-news-item">
+		<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+
+			<div  class=gazeta-img-box style="position: relative; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);">
+					<h3 class="entry-title" style="-height: 30%; text-align: center; position: absolute; bottom: 0; -width: 100%; -border: thin solid green; padding: 3%; background-color: rgba(220,220,220,0.9);">
+						<?php the_title(); ?>
+					</h3>
+			</div>
+
+		</a>
+	    </li>
+		<?php endwhile; ?>
+		<?php wp_reset_postdata(); ?>
+		</ul>
+	</div><div class="clear"></div>
+<?php endif; ?>
+
+
+<!--
+<?php //$catname = esc_attr( get_theme_mod( 'publisho_top_posts' )); ?>
+<?php $catname = "latest"; ?>
+<?php if ( is_front_page() ) : ?>
 	<div class="iofeaturepost-two">
 		<ul>
 		<?php
@@ -56,13 +153,14 @@ get_header(); ?>
 		</ul>
 	</div><div class="clear"></div>
 <?php endif; ?>
+-->
 
 
 
-					<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', 'page' ); ?>
-				<?php // comments_template( '', true ); ?>
-			<?php endwhile; // end of the loop. ?>
+			<?php // while ( have_posts() ) : the_post(); ?>
+				<?php // get_template_part( 'content', 'page' ); ?>
+				<?php // // comments_template( '', true ); ?>
+			<?php // endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->

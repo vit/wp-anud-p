@@ -374,6 +374,141 @@ h2.entry-title,
 }
 
 
+/*
+.fp-cat-gazeta ul {
+    width: 100%;
+    padding: 1%;
+    -border: thin solid green;
+}
+
+.fp-cat-gazeta li {
+    padding: 1%;
+    margin: 1%;
+    width: 96%;
+    border: thin solid #777;
+    float: left;
+    box-sizing:border-box;
+}
+
+.fp-cat-gazeta li:first-child {
+    -margin-left: 2%;
+}
+.fp-cat-gazeta li:last-child {
+    -margin-right: 2%;
+}
+
+@media screen and (min-width: 481px) {
+    .fp-cat-gazeta li {
+        margin: 1%;
+        width: 47%;
+    }
+}
+@media screen and (min-width: 769px) {
+    .fp-cat-gazeta li {
+        margin: 1%;
+        width: 22.5%;
+    }
+}
+*/
+
+
+
+.fp-news-container {
+    -padding: 2% 1% 2% 1%;
+    -padding: 1% 1% 1% 1%;
+    padding: 2% 2% 2% 2%;
+    -padding: 0%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    -justify-content: space-between;
+}
+
+.fp-news-item {
+    box-sizing:border-box;
+    -border: thin solid #777;
+    box-shadow: 1px 1px 3px #777;
+    width: 100%;
+    -padding: 1%;
+    -margin: 1%;
+    margin: 2%;
+
+    transition: box-shadow .3s;
+    -border-radius:10px;
+    border: 1px solid #ccc;
+}
+@media screen and (min-width: 481px) {
+    .fp-news-item {
+        -margin: 1%;
+        width: 46%;
+    }
+}
+@media screen and (min-width: 769px) {
+    .fp-news-item {
+        -margin: 1%;
+        width: 29.33%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .fp-news-item {
+        -margin: 1%;
+        width: 21%;
+    }
+}
+
+
+.fp-news-item:hover {
+    -box-shadow: 1px 1px 1px #777;
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+
+.gazeta-img-box {
+    -height: 600px;
+    width: 100%;
+    padding-top: 65%;
+    -background-position: bottom -50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -background-position: right 0px top -25px;
+    background-position: right 0px top 10%;
+    -border: thin solid red;
+
+    -background-size: contain;
+    -background-position: center;
+
+}
+
+.gazeta-img-box.box-collapsable {
+    padding-top: 0;
+}
+
+.gazeta-img-box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -border: thin solid blue;
+    -background-color: rgba(127,127,127,0.1);
+}
+.gazeta-img-box:hover:before {
+    background-color: rgba(127,127,127,0);
+}
+
+
+/*
+.fp-cat-gazeta li:hover {
+    box-shadow: 0px 0px 2px #777;
+}
+
+.fp-cat-gazeta .gazeta-img {
+    width: 100% !important;
+}
+*/
 
 
 /*
