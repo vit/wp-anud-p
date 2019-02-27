@@ -43,14 +43,11 @@ get_header(); ?>
 
 
          <li class="fp-news-item">
-			<div class="gazeta-img-box box-collapsable" style="position: relative; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);">
-				<div class="-catpostimage">
-					<?php //the_post_thumbnail('publisho-large', 'class=gazeta-img'); ?>
-					<!--img class=gazeta-img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>"-->
-				</div>
+			<div class="gazeta-img-box box-collapsable" style="height: 100%; -color: #fff; background-color: #f0f0f0; -background-color: #07345b; position: relative; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);">
+
 					<div style="-z-index: 1; -height: 30%; -text-align: center; -position: absolute; position: relative; top: 0; -border: thin solid green; padding: 3%; -background-color: rgba(220,220,220,0.9);">
 						<h3 class="entry-title">
-							Календарь мероприятий
+							<a href="calendar">Календарь мероприятий</a>
 						</h3>
 						<ul style="margin: 5px 0px 5px 10px;">
 							<?php
@@ -66,10 +63,17 @@ foreach ( $events as $event ) {
 								echo $event_start_date==$event_end_date ?
 									$event_start_date :
 									$event_start_date."&mdash;".$event_end_date
-							?></b>: <a href="<?php echo get_permalink($event) ?>"><?php
-								//echo $event->post_title
-								echo get_post_shorter_title($event->ID);
-							?></a></li>
+							?></b>:
+								<a href="<?php echo get_permalink($event) ?>">
+									<?php echo get_post_shorter_title($event->ID); ?>
+								</a> |
+								<a style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
+									Подать
+								</a> |
+								<a href="<?php echo get_permalink($event) ?>">
+									Участвовать
+								</a>
+							</li>
 <?
 }
 							?>
@@ -81,20 +85,22 @@ foreach ( $events as $event ) {
 
 
          <li class="fp-news-item">
-			<div class="gazeta-img-box box-collapsable" style="position: relative; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);">
+			<div class="gazeta-img-box box-collapsable" style="height: 100%; -color: #fff; background-color: #f0f0f0;position: relative; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);">
 					<div style="-z-index: 1; -height: 30%; -text-align: center; -position: absolute; position: relative; top: 0; -border: thin solid green; padding: 3%; -background-color: rgba(220,220,220,0.9);">
 						<h3 class="entry-title">
 							Журнал "Гироскопия и навигация"
 						</h3>
 						<ul style="margin: 5px 0px 5px 10px;">
 							<li style="list-style: disc; margin: 10px;">
-								<a href="/journal">О журнале</a>
+								<a href="journal">О журнале</a> / <a target="_blank" href="http://www.elektropribor.spb.ru/nauchnaya-deyatelnost/zhurnal/obshchaya-informatsiya/">главный сайт</a>
 							</li>
 							<li style="list-style: disc; margin: 10px;">
-								<a target="_blank" href="https://gn.comsep.ru">Подать статью</a>
+								Читать на
+								<a target="_blank" href="http://www.elektropribor.spb.ru/nauchnaya-deyatelnost/zhurnal/elektronnaya-versiya/">русском</a> /
+								<a target="_blank" href="https://link.springer.com/journal/13140">английском</a>
 							</li>
 							<li style="list-style: disc; margin: 10px;">
-								<a target="_blank" href="http://www.elektropribor.spb.ru/nauchnaya-deyatelnost/zhurnal/elektronnaya-versiya/">Читать</a>
+								<a target="_blank" href="https://gn.comsep.ru">Подать / рецензировать</a>
 							</li>
 						</ul>
 					</div>
