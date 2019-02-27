@@ -167,10 +167,14 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
 }
 
+.top-notice ul {
+    margin: 5px 0px 5px 10px;
+}
 .top-notice li {
     -margin: 5px;
     -border: thin solid red;
     list-style: disc;
+    margin: 10px;
 }
 
 .top-notice li.top-notice-prize {
@@ -432,6 +436,7 @@ h2.entry-title,
     -border: thin solid #777;
     box-shadow: 1px 1px 3px #777;
     width: 100%;
+    -max-width: 100%;
     -padding: 1%;
     -margin: 1%;
     margin: 2%;
@@ -439,17 +444,38 @@ h2.entry-title,
     transition: box-shadow .3s;
     -border-radius:10px;
     border: 1px solid #ccc;
+
+    -border: 2px solid green;
+    -padding-top: 65%;
+    -height: 65%;
+    position: relative;
+    padding-top: 65%;
+    -padding-top: 15%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    -background-position: right 0px top -25px;
+    background-position: right 0px top 10%;
+
+    -flex: 1;
+    -flex: 1 1 100%;
 }
 @media screen and (min-width: 481px) {
     .fp-news-item {
         -margin: 1%;
         width: 46%;
+        -max-width: 46%;
+        padding-top: 31%;
+        -flex: 1 1 46%;
     }
 }
 @media screen and (min-width: 769px) {
     .fp-news-item {
         -margin: 1%;
         width: 29.33%;
+        -max-width: 29.33%;
+        padding-top: 19%;
+        -flex: 1 1 29.33%;
     }
 }
 
@@ -457,36 +483,53 @@ h2.entry-title,
     .fp-news-item {
         -margin: 1%;
         width: 21%;
+        -max-width: 21%;
+        padding-top: 14%;
+        -flex: 1 1 21%;
     }
 }
-
 
 .fp-news-item:hover {
     -box-shadow: 1px 1px 1px #777;
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
+.fp-news-item:last-child {
+    display: none;
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .fp-news-item:last-child {
+        display: block;
+    }
+}
 
-.gazeta-img-box {
-    -height: 600px;
+
+
+.-gazeta-img-box {
     width: 100%;
     padding-top: 65%;
-    -background-position: bottom -50px;
     background-repeat: no-repeat;
     background-size: cover;
     -background-position: right 0px top -25px;
     background-position: right 0px top 10%;
-    -border: thin solid red;
+    border: thin solid red;
 
     -background-size: contain;
     -background-position: center;
-
 }
 
 .gazeta-img-box.box-collapsable {
     padding-top: 0;
+    -background-color: #f0f0f0 !important;
+}
+.fp-news-item.box-collapsable {
+    padding-top: 0;
+    -background-color: #f0f0f0 !important;
+    -position: relative;
 }
 
+
+/*
 .gazeta-img-box:before {
     content: "";
     position: absolute;
@@ -500,7 +543,7 @@ h2.entry-title,
 .gazeta-img-box:hover:before {
     background-color: rgba(127,127,127,0);
 }
-
+*/
 
 /*
 .fp-cat-gazeta li:hover {
@@ -512,80 +555,3 @@ h2.entry-title,
 }
 */
 
-
-/*
-.iofeaturepost li {
-background: #ffffff none repeat scroll 0 0;
-float: left;
-margin-bottom: 30px;
-margin-right: 3%;
-max-width: 31.3%;
-}
-.iofeaturedblock .entry-title > a {
-color: #444444;
-font-size: 16px;
-font-weight: 500;
-letter-spacing: 0.8px;
-}
-.iofeaturepost-two li {
-background: #ffffff none repeat scroll 0 0;
-float: left;
-margin-bottom: 38px;
-margin-right: 3%;
-max-width: 22.7%;
-}
-.iofeaturepost-two > ul {
-overflow: hidden;
-padding: 3% 3% 0;
-}
-.iofeaturepost-two .iofeaturedblock .entry-title {
-border: 1px solid #e1e1e1;
-font-size: 14px;
-font-weight: normal;
-line-height: 1.3;
-min-height: 65px;
-padding: 10px 4% 20px;
-}
-.iofeaturepost-two .iofeaturedblock .entry-title {
-font-size: 14px;
-font-weight: normal;
-line-height: 1.3;
-min-height: 65px;
-padding: 10px 4% 20px 4%;
-}
-.iofeaturedexcerpt {
-padding: 4%;
-}
-.iofeaturedexcerpt p {
-line-height: 1.4;
-}
-.iofeaturedblock .read-more {
-border-top: 1px solid #ffffff;
-display: block;
-margin-left: -3%;
-width: 104%;
-}
-.iofeaturedblock img.alignleft {
-margin: 0;
-}
-.iofeaturepost li:last-child {
-margin-right: 0;
-}
-.iofeaturepost-two li:last-child {
-margin-right: 0;
-}
-.entry-summary > p {
-padding: 20px 10px 10px 0;
-}
-.iofeaturepost > ul {
-padding: 3%;
-}
-.iofeaturepost-two-title {
-background: #f1f1f1 none repeat scroll 0 0;
-border-bottom: 1px solid #e9e9e9;
-border-top: 1px solid #e9e9e9;
-color: #666666;
-letter-spacing: 1px;
-padding: 20px 20px 20px 2.8%;
-}
-*/

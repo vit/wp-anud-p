@@ -78,4 +78,119 @@ function filter_bcn_breadcrumb_title( $title, $this_type, $this_id ) {
 add_filter( 'bcn_breadcrumb_title', 'filter_bcn_breadcrumb_title', 10, 3 ); 
 
 
+
+function my_custom_sidebars() {
+    for( $i = 0; $i<6; $i++ ) {
+        register_sidebar(
+            array (
+                'name' => __( 'anud_fp_'.$i, 'anud' ),
+                'id' => 'anud_fp_'.$i,
+                'description' => __( 'Custom Sidebar', 'anud' ),
+//                'before_widget' => '<div class="fp-news-item box-collapsable"><div class="gazeta-img-box box-collapsable" style="height: 100%; background-color: #f0f0f0; position: relative;">',
+//                'after_widget' => "</div></div>",
+                'before_widget' => '<div class="fp-news-item box-collapsable">',
+                'after_widget' => "</div>",
+                'before_title' => '<h3 class="widget-title">',
+                'after_title' => '</h3>',
+            )
+        );
+    }
+}
+add_action( 'widgets_init', 'my_custom_sidebars' );
+
+
+
+
+
+
+class anud_fp_events_Widget extends WP_Widget {
+
+    public function __construct() {
+        $widget_options = array( 
+          'classname' => 'anud_fp_events_widget',
+          'description' => 'This is an ANMC events widget',
+        );
+        parent::__construct( 'anud_fp_events_widget', 'Anud FP Events', $widget_options );
+    }
+
+    public function widget( $args, $instance ) {
+        /*
+        $title = apply_filters( 'widget_title', $instance[ 'title' ] );
+        $blog_title = get_bloginfo( 'name' );
+        $tagline = get_bloginfo( 'description' );
+        echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title'];
+        ?>
+            <p><strong>Site Name:</strong> <?php echo $blog_title ?></p>
+            <p><strong>Tagline:</strong> <?php echo $tagline ?></p>
+        <?php
+            echo $args['after_widget'];
+        */
+        ?>
+            <div class="fp-news-item box-collapsable">
+			<div style="position: relative; top: 0; padding: 3%;">
+				<h3 class="entry-title">
+					<a href="calendar">Календарь мероприятий</a>
+				</h3>
+				<ul style="margin: 5px 0px 5px 10px;">
+    			<?php
+                    $events = tribe_get_events( array( 
+                       'posts_per_page' => 5, 
+                       'start_date'     => date( 'Y-m-d H:i:s' )
+                    ) );
+                    foreach ( $events as $event ) {
+                    ?>
+    				    <li style="list-style: disc; margin: 10px;">
+    				        <b>
+    			                <?php
+                					$event_start_date = tribe_get_start_date( $event );
+                					$event_end_date = tribe_get_end_date( $event );
+                					echo $event_start_date==$event_end_date ?
+                						$event_start_date :
+                						$event_start_date."&mdash;".$event_end_date
+                                ?>
+                            </b>:
+                            <a href="<?php echo get_permalink($event) ?>">
+                                <?php echo get_post_shorter_title($event->ID); ?>
+                            </a> |
+                            <a style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
+                                Подать
+                            </a> |
+                            <a href="<?php echo get_permalink($event) ?>">
+                                Участвовать
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </div>
+            </div>
+        <?php
+
+    }
+
+/*
+    public function form( $instance ) {
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+        ?>
+            <p>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>">Title:</label>
+            <input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $title ); ?>" />
+            </p>
+        <?php 
+    }
+
+    public function update( $new_instance, $old_instance ) {
+        $instance = $old_instance;
+        $instance[ 'title' ] = strip_tags( $new_instance[ 'title' ] );
+        return $instance;
+    }
+*/
+}
+
+function anud_register_fp_events_Widget() { 
+  register_widget( 'anud_fp_events_Widget' );
+}
+add_action( 'widgets_init', 'anud_register_fp_events_Widget' );
+
 ?>
