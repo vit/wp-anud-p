@@ -178,10 +178,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .top-notice li.top-notice-prize {
-    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/ostryakov_medal_12x12.png');
+    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/ostryakov_medal_12x12.png') !important;
 }
 .top-notice li.top-notice-anud {
-    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/anud_logo_12x12.png');
+    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/anud_logo_12x12.png') !important;
 }
 
 .top-notice a {
@@ -193,6 +193,10 @@ h1,h2,h3,h4,h5,h6 {
     padding: 12px;
 }
 
+
+.title-alert {
+    color: #d02030;
+}
 
 
 /*
@@ -318,8 +322,10 @@ h2.entry-title,
 }
 */
 
+
 #primary.site-content.frontpage {
     margin: 0;
+    -margin: 2px;
     padding: 0;
     width: 100%;
     border: none;
@@ -328,27 +334,11 @@ h2.entry-title,
     -display: none;
 }
 #main.wrapper.frontpage {
-    border: 0;
+    -border: 0;
 }
 
 
-/*
-#menu-top .menu-item {
-    z-index: 100;
-}
-#-head-top .menu-item {
-    z-index: 100;
-}
 
-#menu-top li,
-#menu-top li:hover,
-#masthead .menu-item,
-#masthead li,
-#head-top li,
-#head-top li:hover {
-    z-index: 100;
-}
-*/
 
 .so-widget-sow-post-carousel-default-971e41e9e54d .sow-carousel-wrapper ul.sow-carousel-items li.sow-carousel-item .sow-carousel-thumbnail a,
 .so-widget-sow-post-carousel-default-971e41e9e54d .sow-carousel-wrapper ul.sow-carousel-items li.sow-carousel-item .sow-carousel-thumbnail a:hover span.overlay {
@@ -364,12 +354,6 @@ h2.entry-title,
     padding: 20px;
 }
 
-/*
-.sow-slider-image-cover {
-    min-height: 170px !important;
-    height: none !important;
-}
-*/
 
 
 
@@ -421,8 +405,8 @@ h2.entry-title,
 
 .fp-news-container {
     -padding: 2% 1% 2% 1%;
-    -padding: 1% 1% 1% 1%;
-    padding: 2% 2% 2% 2%;
+    padding: 1% 1% 1% 1%;
+    -padding: 2% 2% 2% 2%;
     -padding: 0%;
     display: flex;
     flex-direction: row;
@@ -438,8 +422,8 @@ h2.entry-title,
     width: 100%;
     -max-width: 100%;
     -padding: 1%;
-    -margin: 1%;
-    margin: 2%;
+    margin: 1%;
+    -margin: 2%;
 
     transition: box-shadow .3s;
     -border-radius:10px;
@@ -463,7 +447,8 @@ h2.entry-title,
 @media screen and (min-width: 481px) {
     .fp-news-item {
         -margin: 1%;
-        width: 46%;
+        -width: 46%;
+        width: 48%;
         -max-width: 46%;
         padding-top: 31%;
         -flex: 1 1 46%;
@@ -472,7 +457,8 @@ h2.entry-title,
 @media screen and (min-width: 769px) {
     .fp-news-item {
         -margin: 1%;
-        width: 29.33%;
+        -width: 29.33%;
+        width: 31.33%;
         -max-width: 29.33%;
         padding-top: 19%;
         -flex: 1 1 29.33%;
@@ -482,7 +468,8 @@ h2.entry-title,
 @media screen and (min-width: 1025px) {
     .fp-news-item {
         -margin: 1%;
-        width: 21%;
+        -width: 21%;
+        width: 23%;
         -max-width: 21%;
         padding-top: 14%;
         -flex: 1 1 21%;
@@ -518,15 +505,48 @@ h2.entry-title,
     -background-position: center;
 }
 
+/*
 .gazeta-img-box.box-collapsable {
     padding-top: 0;
     -background-color: #f0f0f0 !important;
 }
+*/
+
 .fp-news-item.box-collapsable {
     padding-top: 0;
     -background-color: #f0f0f0 !important;
     -position: relative;
+
+    -display: flex;
+    -justify-content: center;
+    -align-items: center;
 }
+
+.fp-news-item.box-collapsable .box-container {
+    position: relative;
+    top: 0;
+    padding: 3%;
+
+    -vertical-align: middle;
+    -display: flex;
+    -justify-content: center;
+    -align-items: center;
+}
+
+.fp-news-item.box-collapsable .box-container ul {
+     margin: 5px 0px 5px 10px;
+}
+.fp-news-item.box-collapsable .box-container li {
+    list-style: disc;
+    margin: 10px;
+}
+.fp-news-item.box-collapsable .box-container li.list-item-prize {
+    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/ostryakov_medal_12x12.png');
+}
+.fp-news-item.box-collapsable .box-container li.list-item-anud {
+    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/anud_logo_12x12.png');
+}
+
 
 
 /*

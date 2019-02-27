@@ -108,7 +108,7 @@ class anud_fp_events_Widget extends WP_Widget {
     public function __construct() {
         $widget_options = array( 
           'classname' => 'anud_fp_events_widget',
-          'description' => 'This is an ANMC events widget',
+          'description' => 'Anud FP events widget',
         );
         parent::__construct( 'anud_fp_events_widget', 'Anud FP Events', $widget_options );
     }
@@ -126,12 +126,14 @@ class anud_fp_events_Widget extends WP_Widget {
             echo $args['after_widget'];
         */
         ?>
-            <div class="fp-news-item box-collapsable">
-			<div style="position: relative; top: 0; padding: 3%;">
+            <?php // print_r( $args ); ?>
+            <?php echo $args['before_widget'] ?>
+            <!--div class="fp-news-item box-collapsable"-->
+			<div class="box-container">
 				<h3 class="entry-title">
 					<a href="calendar">Календарь мероприятий</a>
 				</h3>
-				<ul style="margin: 5px 0px 5px 10px;">
+				<ul>
     			<?php
                     $events = tribe_get_events( array( 
                        'posts_per_page' => 5, 
@@ -139,7 +141,7 @@ class anud_fp_events_Widget extends WP_Widget {
                     ) );
                     foreach ( $events as $event ) {
                     ?>
-    				    <li style="list-style: disc; margin: 10px;">
+    				    <li>
     				        <b>
     			                <?php
                 					$event_start_date = tribe_get_start_date( $event );
@@ -164,7 +166,8 @@ class anud_fp_events_Widget extends WP_Widget {
                     ?>
                 </ul>
             </div>
-            </div>
+            <!--/div-->
+            <?php echo $args['after_widget'] ?>
         <?php
 
     }
