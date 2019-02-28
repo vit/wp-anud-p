@@ -123,7 +123,7 @@ foreach ( $events as $event ) {
 			while ($query->have_posts()) : $query->the_post();
 			$do_not_duplicate[] = get_the_ID();
 		?>
-         <li class="fp-news-item" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large') ?>);">
+         <div class="fp-news-item" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large') ?>);">
 		<a style="display: block; position: absolute; top: 0; bottom: 0; left: 0; right: 0; -border: thin solid red;" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 
 			<!--div  class=gazeta-img-box style="position: relative; -top:0; -bottom:0; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);"-->
@@ -133,7 +133,7 @@ foreach ( $events as $event ) {
 			<!--/div-->
 
 		</a>
-	    </li>
+	    </div>
 		<?php endwhile; ?>
 		<?php wp_reset_postdata(); ?>
 		</div>
