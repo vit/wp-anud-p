@@ -8,7 +8,7 @@
 ?>
 	</div><!-- #main .wrapper -->
 	
-	<div id="publisho-footer" class="widget-area">
+	<!--div id="publisho-footer" class="widget-area">
 				<div class="footer-widget">
                 <?php if( is_active_sidebar( 'footer-one' ) ) dynamic_sidebar( 'footer-one' ); ?>
 				</div>
@@ -18,14 +18,31 @@
 				<div class="footer-widget">
 				<?php if( is_active_sidebar( 'footer-three' ) ) dynamic_sidebar( 'footer-three' ); ?>
 				</div>
-	</div>
+	</div-->
 			
 	<!--div class="site-wordpress">
 		<a href="<?php echo esc_url( __( 'http://themonic.com/publisho-magazine-wordpress-theme/', 'publisho' ) ); ?>"><?php printf( esc_html__( 'Publisho Theme', 'publisho' ) ); ?></a><?php echo esc_html__( '  |  Powered by Wordpress' , 'publisho' );?>
-	</div--><!-- .site-info --><!--div class="clear"></div-->
+	</div--><!-- .site-info -->
+	<!--div class="clear"></div-->
+
+	<div class="clear"></div>
+
+
+		<?php if ( is_active_sidebar( 'anud_footer_copyright' ) ) : ?>
+					<div class="footer-widget">
+		    <?php dynamic_sidebar( 'anud_footer_copyright' ); ?>
+					</div>
+		<?php endif; ?>
+
+	<div class="clear"></div>
+
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+
+
 </body>
 </html>
 <?php if( $GLOBALS['REPLACE_CANONICAL_HOST'] ) ob_end_flush(); ?>

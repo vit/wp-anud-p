@@ -115,11 +115,15 @@ foreach ( $events as $event ) {
 
 		<?php
 			//$query = new WP_Query("category_name=$catname&showposts=4");
-			$query = new WP_Query("showposts=6");
+//			$query = new WP_Query("showposts=14");
+//			$query = new WP_Query("showposts=15&posts_per_page=15&ignore_stickie_posts=1");
+//			$query = new WP_Query("showposts=15&posts_per_page=-1&ignore_stickie_posts=1");
+			$query = new WP_Query("showposts=10&posts_per_page=-1&ignore_stickie_posts=1");
+
 			while ($query->have_posts()) : $query->the_post();
 			$do_not_duplicate[] = get_the_ID();
 		?>
-         <li class="fp-news-item" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);">
+         <li class="fp-news-item" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large') ?>);">
 		<a style="display: block; position: absolute; top: 0; bottom: 0; left: 0; right: 0; -border: thin solid red;" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 
 			<!--div  class=gazeta-img-box style="position: relative; -top:0; -bottom:0; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);"-->
@@ -138,31 +142,6 @@ foreach ( $events as $event ) {
 <?php endif; ?>
 
 
-<!--
-<?php //$catname = esc_attr( get_theme_mod( 'publisho_top_posts' )); ?>
-<?php $catname = "latest"; ?>
-<?php if ( is_front_page() ) : ?>
-	<div class="iofeaturepost-two">
-		<ul>
-		<?php
-			$query = new WP_Query("category_name=$catname&showposts=4");
-			while ($query->have_posts()) : $query->the_post();
-			$do_not_duplicate[] = get_the_ID();
-		?>
-         <li>
-			<div class="iofeaturedblock">
-				<div class="catpostimage"><?php the_post_thumbnail('publisho-large', 'class=alignleft'); ?></div>
-					<h2 class="entry-title">
-						<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( esc_html__( 'Permalink to %s', 'publisho' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
-					</h2>
-			</div>
-	    </li>
-		<?php endwhile; ?>
-		<?php wp_reset_postdata(); ?>
-		</ul>
-	</div><div class="clear"></div>
-<?php endif; ?>
--->
 
 
 

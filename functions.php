@@ -95,6 +95,19 @@ function my_custom_sidebars() {
             )
         );
     }
+        register_sidebar(
+            array (
+                'name' => __( 'anud_footer_copyright', 'anud' ),
+                'id' => 'anud_footer_copyright',
+                'description' => __( 'Footer Copyright Custom Sidebar', 'anud' ),
+//                'before_widget' => '<div class="fp-news-item box-collapsable"><div class="gazeta-img-box box-collapsable" style="height: 100%; background-color: #f0f0f0; position: relative;">',
+//                'after_widget' => "</div></div>",
+                'before_widget' => '<div class="footer-copyright">',
+                'after_widget' => "</div>",
+                'before_title' => '<h3 class="widget-title">',
+                'after_title' => '</h3>',
+            )
+        );
 }
 add_action( 'widgets_init', 'my_custom_sidebars' );
 

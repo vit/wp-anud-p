@@ -49,25 +49,31 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 	</nav><!-- #site-navigation -->
 	<div class="clear"></div>
 	<header id="masthead" class="site-header" role="banner">
+		<?php if( is_front_page() ) { ?>
+			<?php get_template_part( 'partials/frontpage', 'header' ); ?>
+		<?php } else { ?>
 
-		<!--div><?php // if ( function_exists( 'the_msls' ) ) the_msls(); ?></div-->
-
-			<?php if ( get_theme_mod( 'custom_logo' ) ) : ?>
-		
-		<div class="themonic-logo">
-		<?php publisho_the_custom_logo(); ?>
-		</div>
-		<div id="publisho-head-widget" class="head-widget-area">
-				<div class="pmt-head-widget">
-                <?php if( is_active_sidebar( 'pmt-tophead-banner' ) ) dynamic_sidebar( 'pmt-tophead-banner' ); ?>
-				</div>
-		</div>
-		<?php else : ?>
-			<div class="th-title-description">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-				<a class="site-description clear"><?php bloginfo( 'description' ); ?></a>
+			<!--div><?php // if ( function_exists( 'the_msls' ) ) the_msls(); ?></div-->
+	
+				<?php if ( get_theme_mod( 'custom_logo' ) ) : ?>
+			
+			<div class="themonic-logo">
+			<?php publisho_the_custom_logo(); ?>
 			</div>
-		<?php endif; ?>
+			<div id="publisho-head-widget" class="head-widget-area">
+					<div class="pmt-head-widget">
+	                <?php if( is_active_sidebar( 'pmt-tophead-banner' ) ) dynamic_sidebar( 'pmt-tophead-banner' ); ?>
+					</div>
+			</div>
+			<?php else : ?>
+				<div class="th-title-description">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+					<a class="site-description clear"><?php bloginfo( 'description' ); ?></a>
+				</div>
+			<?php endif; ?>
+
+		<?php } ?>
+
 	<div class="0-publisho-mobile-nav clear"></div>
 		<!--nav id="ssite-navigation" class="themonic-nav" role="navigation">
 			<?php // wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'menu-top', 'menu_class' => 'nav-menu' ) ); ?>
