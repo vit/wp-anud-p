@@ -453,6 +453,11 @@ h2.entry-title,
         padding-top: 31%;
         -flex: 1 1 46%;
     }
+/*
+    .fp-news-item.box-item-1 {
+        width: 100%;
+    }
+*/
 }
 @media screen and (min-width: 769px) {
     .fp-news-item {
@@ -463,6 +468,11 @@ h2.entry-title,
         padding-top: 19%;
         -flex: 1 1 29.33%;
     }
+/*
+    .fp-news-item.box-item-1 {
+        width: 64.66%;
+    }
+*/
 }
 
 @media screen and (min-width: 1025px) {
@@ -474,6 +484,11 @@ h2.entry-title,
         padding-top: 14%;
         -flex: 1 1 21%;
     }
+/*
+    .fp-news-item.box-item-1 {
+        width: 48%;
+    }
+*/
 }
 
 .fp-news-item:hover {

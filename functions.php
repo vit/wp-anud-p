@@ -88,7 +88,7 @@ function my_custom_sidebars() {
                 'description' => __( 'Custom Sidebar', 'anud' ),
 //                'before_widget' => '<div class="fp-news-item box-collapsable"><div class="gazeta-img-box box-collapsable" style="height: 100%; background-color: #f0f0f0; position: relative;">',
 //                'after_widget' => "</div></div>",
-                'before_widget' => '<div class="fp-news-item box-collapsable">',
+                'before_widget' => '<div class="fp-news-item box-collapsable box-item-'.$i.'">',
                 'after_widget' => "</div>",
                 'before_title' => '<h3 class="widget-title">',
                 'after_title' => '</h3>',
@@ -155,15 +155,14 @@ class anud_fp_events_Widget extends WP_Widget {
                     foreach ( $events as $event ) {
                     ?>
     				    <li>
-    				        <b>
-    			                <?php
+    				        <b><?php
                 					$event_start_date = tribe_get_start_date( $event );
                 					$event_end_date = tribe_get_end_date( $event );
                 					echo $event_start_date==$event_end_date ?
                 						$event_start_date :
                 						$event_start_date."&mdash;".$event_end_date
-                                ?>
-                            </b>:
+                                
+                            ?></b>:
                             <a href="<?php echo get_permalink($event) ?>">
                                 <?php echo get_post_shorter_title($event->ID); ?>
                             </a> |
