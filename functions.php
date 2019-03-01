@@ -208,4 +208,60 @@ function anud_register_fp_events_Widget() {
 }
 add_action( 'widgets_init', 'anud_register_fp_events_Widget' );
 
+
+
+
+
+
+
+
+
+function anud_person_info_shortcode_func( $atts, $content=null ) {
+    $a = shortcode_atts( array(
+        'name' => null,
+        'title' => null,
+        'photo_url' => null,
+    ), $atts );
+
+    $content = do_shortcode($content);
+    
+    $title = $a['title'] ? "<b>${a['title']}</b><br/>" : "";
+    return <<<END
+<div style="-display: flex; -flex-wrap: wrap; margin: 15px 0 15px 0;">
+    <h2 style="margin-top: 20px; margin-bottom: 10px; padding: 0;">
+        <img src="{$a['photo_url']}" style="width: 150px; max-width: 30%; float: left; margin: 0px 15px 15px 0px;">
+        {$a['name']}
+    </h2>
+    <p>
+        $title
+        $content
+    </p>
+    <div class="clear"></div>
+</div>
+END;
+/*
+    return <<<END
+<div style="display: flex; flex-wrap: wrap; padding: 10px;">
+    <div style="width: 180px; padding: 2px;">
+        <img src="{$a['photo_url']}" style="width: 180px;">
+    </div>
+    <div style="padding: 2px;">
+        <h2 style="margin-top: 5px; margin-bottom: 5px;">{$a['name']}</h2>
+        <b>{$a['title']}</b>
+        <div>
+        $content
+        </div>
+    </div>
+</div>
+END;
+*/
+}
+add_shortcode( 'anud_person_info', 'anud_person_info_shortcode_func' );
+
+
+
+
+
+
+
 ?>
