@@ -109,17 +109,45 @@ add_action( 'the_post', 'anud_the_post_action_func' );
 
 function anud_bcn_after_fill_action_func( $bco ) {
 
-    $parent = get_page_by_path('conferences', OBJECT, 'page');
+//    $parent = get_page_by_path('conferences', OBJECT, 'page');
 //    $parent = get_page_by_path('membership/meetings', OBJECT, 'page');
 //wp_die( json_encode( $parent ) );
 
-    if ( '-tribe_events' == get_post_type( $post_object ) ) {
+    $cat_map = array(
+        'meetings' => 'membership/meetings',
+        'conferences' => 'conferences',
+        'icins' => 'conferences'
+    );
+
+    if ( 'tribe_events' == get_post_type( $post_object ) ) {
+        $bc0 = $bco->breadcrumbs[0];
+        $bc0_id = $bc0->ID;
+        $terms = get_the_terms( get_post($bc0_id), 'tribe_events_cat' );
+
+        $cat_slug = null;
+        if( $terms && $terms[0] )
+            $cat_slug = $terms[0]->slug;
+        $path = $cat_map[$cat_slug];
+
+
         $bc = $bco->breadcrumbs[1];
         if( $bc ) {
             $id = $bc->get_id();
-            $id = $parent->ID;
+
+            if( $path ) {
+                $parent = get_page_by_path($path, OBJECT, 'page');
+                $id = $parent->ID;
+            }
+
+//            if( $cat_slug == "meetings" ) {
+//                //$prefix = "meeting/";
+//                $parent = get_page_by_path('membership/meetings', OBJECT, 'page');
+//                $id = $parent->ID;
+//            }
+
             $bco->breadcrumbs[1] = new bcn_breadcrumb(
-                get_the_title( $id ).'!!!',
+                //get_the_title( $id ),
+                get_post_shorter_title( $id ),
                 $bco->opt['Hpost_tribe_events_template'],
                 $bc->get_types(),
                 get_permalink( $id ),
@@ -128,9 +156,9 @@ function anud_bcn_after_fill_action_func( $bco ) {
         }
     }
 }
-//add_action( 'bcn_before_fill', 'anud_bcn_after_fill_action_func' );
+//add_action( 'bcn_before_fill', 'anud_bcn_before_fill_action_func' );
 add_action( 'bcn_after_fill', 'anud_bcn_after_fill_action_func' );
-
+//bcn_breadcrumb_trail_object
 
 
 
