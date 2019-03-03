@@ -46,6 +46,121 @@ function per_category_basis_gazeta($query){
 
 
 
+
+
+
+add_filter('tribe_events_category_slug', 'fix_tribe_events_category_slug_func');
+function fix_tribe_events_category_slug_func($slug){
+    return 'category';
+}
+
+
+//add_rewrite_rule( 'conference/?$', 'index.php?messagetypes=tribe_events', 'top' );
+
+
+add_action('init', 'custom_permastruct_rewrite');
+function custom_permastruct_rewrite() {
+    global $wp_rewrite;
+
+    $wp_rewrite->add_rewrite_tag("%slug%", '([^/]+)', "post_type=tribe_events&name=");
+    $wp_rewrite->add_rewrite_tag("%slug%", '([^/]+)', "post_type=tribe_events&name=");
+    $wp_rewrite->add_permastruct('my_conference_rule', '/conf/%slug%', false);
+    $wp_rewrite->add_permastruct('my_meeting_rule', '/meeting/%slug%', false);
+}
+
+
+function anud_post_type_link_func( $url, $post ) {
+    if ( 'tribe_events' == get_post_type( $post ) ) {
+//        return add_query_arg( $_GET, $url );
+//        return add_query_arg( array('a' => 'aa'), $url );
+
+        $prefix = "conf/";
+
+        $terms = get_the_terms( $post, 'tribe_events_cat' );
+
+        $cat_slug = null;
+        if( $terms[0] )
+            $cat_slug = $terms[0]->slug;
+        if( $cat_slug == "meetings" )
+            $prefix = "meeting/";
+
+        $url = home_url($prefix . $post->post_name);
+//        $url = add_query_arg( array('a' => 'aa'), $url );
+
+
+//        wp_die( json_encode( $terms ) );
+//        wp_die( json_encode( $terms[0]->parent ) );
+//        wp_die( json_encode( $terms[0]->slug ) );
+        return $url;
+    }
+    return $url;
+}
+add_filter( 'post_type_link', 'anud_post_type_link_func', 10, 2 );
+
+
+function anud_the_post_action_func( $post_object ) {
+    if ( 'tribe_events' == get_post_type( $post_object ) ) {
+        //wp_die( json_encode( $post_object->post_parent ) );
+//        $post_object->post_parent = 13;
+    }
+    
+}
+add_action( 'the_post', 'anud_the_post_action_func' );
+
+function anud_bcn_after_fill_action_func( $bco ) {
+
+    $parent = get_page_by_path('conferences', OBJECT, 'page');
+//    $parent = get_page_by_path('membership/meetings', OBJECT, 'page');
+//wp_die( json_encode( $parent ) );
+
+    if ( '-tribe_events' == get_post_type( $post_object ) ) {
+        $bc = $bco->breadcrumbs[1];
+        if( $bc ) {
+            $id = $bc->get_id();
+            $id = $parent->ID;
+            $bco->breadcrumbs[1] = new bcn_breadcrumb(
+                get_the_title( $id ).'!!!',
+                $bco->opt['Hpost_tribe_events_template'],
+                $bc->get_types(),
+                get_permalink( $id ),
+                $id
+            );
+        }
+    }
+}
+//add_action( 'bcn_before_fill', 'anud_bcn_after_fill_action_func' );
+add_action( 'bcn_after_fill', 'anud_bcn_after_fill_action_func' );
+
+
+
+
+
+/*
+function anud_get_ancestors_func( $ancestors, $object_id, $object_type, $resource_type ) {
+//    if ( 'tribe_events' == get_post_type( $post ) ) {
+
+//    if ( 'tribe_events' == $object_type ) {
+//        return add_query_arg( $_GET, $url );
+//        return add_query_arg( array('a' => 'aa'), $url );
+
+//wp_die( json_encode( $ancestors ) );
+//wp_die( json_encode( $object_type ) );
+//wp_die( json_encode( $resource_type ) );
+
+        $ancestors = [];
+
+//    }
+    return $ancestors;
+}
+add_filter( 'get_ancestors', 'anud_get_ancestors_func', 10, 4 );
+*/
+
+
+
+
+
+
+
 /*
 function filter_events_title( $title ) {
 //	if ( tribe_is_upcoming() && ! is_tax() ) {
@@ -171,7 +286,7 @@ class anud_fp_events_Widget extends WP_Widget {
                             </a> |
                             <a href="<?php echo get_permalink($event) ?>">
                                 Участвовать
-                            </a>
+                            </a><!-- [<?php echo $event->post_parent ?>] -->
                         </li>
                     <?php
                     }

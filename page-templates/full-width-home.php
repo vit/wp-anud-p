@@ -47,83 +47,24 @@ get_header(); ?>
 <?php } ?>
 
 
-<!--
-         <div class="fp-news-item box-collapsable">
+		</div>
 
-					<div style="-z-index: 1; -height: 30%; -text-align: center; -position: absolute; position: relative; top: 0; -border: thin solid green; padding: 3%; -background-color: rgba(220,220,220,0.9);">
-						<h3 class="entry-title">
-							<a href="calendar">Календарь мероприятий</a>
-						</h3>
-						<ul style="margin: 5px 0px 5px 10px;">
-							<?php
-$events = tribe_get_events( array( 
-   'posts_per_page' => 5, 
-   'start_date'     => date( 'Y-m-d H:i:s' )
-) );
-foreach ( $events as $event ) {
-?>
-							<li style="list-style: disc; margin: 10px;"><b><?php
-								$event_start_date = tribe_get_start_date( $event );
-								$event_end_date = tribe_get_end_date( $event );
-								echo $event_start_date==$event_end_date ?
-									$event_start_date :
-									$event_start_date."&mdash;".$event_end_date
-							?></b>:
-								<a href="<?php echo get_permalink($event) ?>">
-									<?php echo get_post_shorter_title($event->ID); ?>
-								</a> |
-								<a style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
-									Подать
-								</a> |
-								<a href="<?php echo get_permalink($event) ?>">
-									Участвовать
-								</a>
-							</li>
-<?
-}
-							?>
-						</ul>
-					</div>
-	    </div>
+<div class="-entry-content fp-entry-content">
+		<h2 class="entry-title">Новости</h2>
 
-
-        <div class="fp-news-item box-collapsable" sstyle="flex-grow: 2;">
-					<div style="position: relative; top: 0; padding: 3%; -background-color: rgba(220,220,220,0.9);">
-						<h3 class="entry-title">
-							Журнал "Гироскопия и навигация"
-						</h3>
-						<ul style="margin: 5px 0px 5px 10px;">
-							<li style="list-style: disc; margin: 10px;">
-								<a href="journal">О журнале</a> | <a target="_blank" href="http://www.elektropribor.spb.ru/nauchnaya-deyatelnost/zhurnal/obshchaya-informatsiya/">главный сайт</a>
-							</li>
-							<li style="list-style: disc; margin: 10px;">
-								Читать на
-								<a target="_blank" href="http://www.elektropribor.spb.ru/nauchnaya-deyatelnost/zhurnal/elektronnaya-versiya/">русском</a> |
-								<a target="_blank" href="https://link.springer.com/journal/13140">английском</a>
-							</li>
-							<li style="list-style: disc; margin: 10px;">
-								<a target="_blank" href="https://gn.comsep.ru">Подать | рецензировать</a>
-							</li>
-						</ul>
-					</div>
-	    </div>
--->
-
-
-
-
+		<div class="fp-news-container">
 
 		<?php
 			//$query = new WP_Query("category_name=$catname&showposts=4");
 //			$query = new WP_Query("showposts=14");
 //			$query = new WP_Query("showposts=15&posts_per_page=15&ignore_stickie_posts=1");
 //			$query = new WP_Query("showposts=15&posts_per_page=-1&ignore_stickie_posts=1");
-			$query = new WP_Query("showposts=10&posts_per_page=-1&ignore_stickie_posts=1");
+			$query = new WP_Query("showposts=9&posts_per_page=-1&ignore_stickie_posts=1");
 
 			while ($query->have_posts()) : $query->the_post();
 			$do_not_duplicate[] = get_the_ID();
 		?>
-         <div class="fp-news-item" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large') ?>);">
+         <div class="fp-news-item fp-news-item-2" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large') ?>);">
 		<a style="display: block; position: absolute; top: 0; bottom: 0; left: 0; right: 0; -border: thin solid red;" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 
 			<!--div  class=gazeta-img-box style="position: relative; -top:0; -bottom:0; background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large') ?>);"-->
@@ -137,11 +78,49 @@ foreach ( $events as $event ) {
 		<?php endwhile; ?>
 		<?php wp_reset_postdata(); ?>
 		</div>
+</div>
+
 	<!--/div-->
 	<div class="clear"></div>
 <?php endif; ?>
 
 
+
+<div>
+<?php /*
+$args = array(
+//    'name' => 'genre'
+);
+$output = 'objects'; // or names
+$taxonomies= get_taxonomies( $args, $output ); 
+if ( $taxonomies ) {
+    foreach ( $taxonomies as $taxonomy ) {
+//        echo '<div>' . $taxonomy->labels->name . '</div>';
+        echo '<br />';
+        echo '<div>';
+	        echo "name: ".$taxonomy->name;
+			echo '<br />';
+	        //echo 'labels:';
+			//print_r( $taxonomy->labels );
+			//echo '<br />';
+	        echo "object_type: ";
+			print_r( $taxonomy->object_type );
+			echo '<br />';
+	        echo "cap: ";
+			print_r( $taxonomy->cap );
+			echo '<br />';
+	        echo "rewrite: ";
+			print_r( $taxonomy->rewrite );
+			echo '<br />';
+
+			echo '<br />';
+			print_r( $taxonomy );
+        echo '</div>';
+        echo '<br />';
+    }
+}  
+*/ ?>
+</div>
 
 
 
