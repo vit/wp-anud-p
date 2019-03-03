@@ -408,6 +408,42 @@ add_shortcode( 'anud_person_info', 'anud_person_info_shortcode_func' );
 
 
 
+function anud_attraction_info_shortcode_func( $atts, $content=null ) {
+    $a = shortcode_atts( array(
+        'name' => null,
+//        'title' => null,
+        'photo_url' => null,
+        'site_url' => null,
+    ), $atts );
+
+    $content = do_shortcode($content);
+    
+//    $title = $a['title'] ? "<b>${a['title']}</b><br/>" : "";
+    $img = null;
+    if($a['photo_url'])
+        $img = <<<END
+<img src="{$a['photo_url']}" style="width: 150px; max-width: 30%; float: left; margin: 0px 15px 15px 0px;">
+END;
+    return <<<END
+<div style="margin: 15px 0 15px 0;">
+    <h2 style="margin-top: 20px; margin-bottom: 10px; padding: 0;">
+        <a href="{$a['site_url']}" target=_blank>
+        $img
+        {$a['name']}
+        </a>
+    </h2>
+    <p>
+        $content
+    </p>
+    <div class="clear"></div>
+</div>
+END;
+}
+add_shortcode( 'anud_attraction_info', 'anud_attraction_info_shortcode_func' );
+
+
+
+
 
 
 
