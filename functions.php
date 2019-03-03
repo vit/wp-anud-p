@@ -146,8 +146,8 @@ function anud_bcn_after_fill_action_func( $bco ) {
 //            }
 
             $bco->breadcrumbs[1] = new bcn_breadcrumb(
-                //get_the_title( $id ),
-                get_post_shorter_title( $id ),
+                get_the_title( $id ),
+                //get_post_shorter_title( $id ),
                 $bco->opt['Hpost_tribe_events_template'],
                 $bc->get_types(),
                 get_permalink( $id ),
@@ -369,10 +369,15 @@ function anud_person_info_shortcode_func( $atts, $content=null ) {
     $content = do_shortcode($content);
     
     $title = $a['title'] ? "<b>${a['title']}</b><br/>" : "";
+    $img = null;
+    if($a['photo_url'])
+        $img = <<<END
+<img src="{$a['photo_url']}" style="width: 150px; max-width: 30%; float: left; margin: 0px 15px 15px 0px;">
+END;
     return <<<END
 <div style="-display: flex; -flex-wrap: wrap; margin: 15px 0 15px 0;">
     <h2 style="margin-top: 20px; margin-bottom: 10px; padding: 0;">
-        <img src="{$a['photo_url']}" style="width: 150px; max-width: 30%; float: left; margin: 0px 15px 15px 0px;">
+        $img
         {$a['name']}
     </h2>
     <p>
