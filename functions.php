@@ -107,6 +107,52 @@ function anud_the_post_action_func( $post_object ) {
 }
 add_action( 'the_post', 'anud_the_post_action_func' );
 
+
+
+
+
+
+function anud_bcn_breadcrumb_trail_object_action_func( $to ) {
+//    $post = get_post();
+//wp_die( json_encode( $post->post_type ) );
+//    if($post && $post->post_type=="tribe_events")
+//        $post->post_type=="tribe_events_meetings";
+}
+
+function anud_bcn_before_fill_action_func( $bco ) {
+    $post = get_post();
+//wp_die( json_encode( $post->post_type ) );
+    if($post && $post->post_type=="tribe_events") {
+        $cat_map = array(
+            'meetings' => 'membership/meetings',
+            'conferences' => 'conferences',
+            'icins' => 'conferences'
+        );
+
+        if ( 'tribe_events' == get_post_type( $post_object ) ) {
+            if( is_singular() ) {
+                $terms = get_the_terms( $post->ID, 'tribe_events_cat' );
+    
+                $cat_slug = null;
+                if( $terms && $terms[0] )
+                    $cat_slug = $terms[0]->slug;
+                $path = $cat_map[$cat_slug];
+    
+                if( $path ) {
+                    $parent = get_page_by_path($path, OBJECT, 'page');
+                    if( $parent && $parent->ID ) {
+                        $bco->opt['apost_tribe_events_root'] = $parent->ID;
+                        $bco->opt['bpost_tribe_events_archive_display'] = false;
+                    }
+                }
+            } else {
+                $bco->opt['bpost_tribe_events_archive_display'] = true;
+            }
+        }
+    }
+
+}
+
 function anud_bcn_after_fill_action_func( $bco ) {
 
 //    $parent = get_page_by_path('conferences', OBJECT, 'page');
@@ -156,8 +202,9 @@ function anud_bcn_after_fill_action_func( $bco ) {
         }
     }
 }
-//add_action( 'bcn_before_fill', 'anud_bcn_before_fill_action_func' );
-add_action( 'bcn_after_fill', 'anud_bcn_after_fill_action_func' );
+add_action( 'bcn_breadcrumb_trail_object', 'anud_bcn_breadcrumb_trail_object_action_func' );
+add_action( 'bcn_before_fill', 'anud_bcn_before_fill_action_func' );
+//add_action( 'bcn_after_fill', 'anud_bcn_after_fill_action_func' );
 //bcn_breadcrumb_trail_object
 
 
@@ -270,17 +317,6 @@ class anud_fp_events_Widget extends WP_Widget {
     }
 
     public function widget( $args, $instance ) {
-        /*
-        $title = apply_filters( 'widget_title', $instance[ 'title' ] );
-        $blog_title = get_bloginfo( 'name' );
-        $tagline = get_bloginfo( 'description' );
-        echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title'];
-        ?>
-            <p><strong>Site Name:</strong> <?php echo $blog_title ?></p>
-            <p><strong>Tagline:</strong> <?php echo $tagline ?></p>
-        <?php
-            echo $args['after_widget'];
-        */
         ?>
             <?php // print_r( $args ); ?>
             <?php echo $args['before_widget'] ?>
@@ -443,6 +479,105 @@ add_shortcode( 'anud_attraction_info', 'anud_attraction_info_shortcode_func' );
 
 
 
+function anud_figure_in_text_shortcode_func( $atts, $content=null ) {
+    $a = shortcode_atts( array(
+        'float' => "left",
+        'width' => 180,
+        'name' => null,
+        'src' => null,
+    ), $atts );
+
+    $content = do_shortcode($content);
+
+    $width = $a['width'];
+
+    $float = $a['float'];
+    if( "left"==$float ) {
+        $margin = "0px 5px 5px 0px;";
+    } else if( "right"==$float ) {
+        $margin = "0px 0px 5px 5px;";
+    } else {
+        $float = "none";
+        $margin = "0px 5px 5px 5px";
+    }
+
+    return <<<END
+<figure
+    style="-max-width: 50%; text-align: center; margin: $margin; float: $float; -border: thin solid red; display:inline-block;"
+>
+    <img
+        class="-size-full"
+        style="margin: 0px; width: {$width}px; -height: 180px; max-width: 100%; -height: auto;"
+        src="{$a['src']}"
+        alt="{$a['name']}"
+    />
+    <figcaption
+        style="font-size: 80%; padding: 5px;"
+    >
+        {$a['name']}
+    </figcaption>
+</figure>
+END;
+}
+add_shortcode( 'anud_figure_in_text', 'anud_figure_in_text_shortcode_func' );
+
+
+
+
+
+
+function anud_prize_laureates_year_shortcode_func( $atts, $content=null ) {
+    $a = shortcode_atts( array(
+        'year' => null,
+    ), $atts );
+
+    $content = do_shortcode($content);
+
+    $year = $a['year'];
+
+    return <<<END
+<h2 align=center>$year</h2>
+$content
+END;
+}
+add_shortcode( 'anud_prize_laureates_year', 'anud_prize_laureates_year_shortcode_func' );
+
+
+function anud_prize_laureates_group_shortcode_func( $atts, $content=null ) {
+    $a = shortcode_atts( array(
+        'title' => null,
+    ), $atts );
+
+    $content = do_shortcode($content);
+
+    $title = $a['title'];
+
+    return <<<END
+<h3 -align=center>$title</h3>
+$content
+END;
+}
+add_shortcode( 'anud_prize_laureates_group', 'anud_prize_laureates_group_shortcode_func' );
+
+
+function anud_prize_laureates_year_group_shortcode_func( $atts, $content=null ) {
+    $a = shortcode_atts( array(
+        'title' => null,
+        'year' => null,
+    ), $atts );
+
+    $content = do_shortcode($content);
+
+    $year = $a['year'];
+    $title = $a['title'];
+
+    return <<<END
+<h2 align=center>$year</h2>
+<h3 -align=center>$title</h3>
+$content
+END;
+}
+add_shortcode( 'anud_prize_laureates_year_group', 'anud_prize_laureates_year_group_shortcode_func' );
 
 
 

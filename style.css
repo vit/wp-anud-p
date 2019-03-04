@@ -224,6 +224,9 @@ h1.entry-title {
     margin-bottom: 8px;
 }
 
+.entry-content ul {
+    margin-bottom: 8px;
+}
 
 h1.entry-title,
 h2.entry-title,
