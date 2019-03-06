@@ -335,6 +335,8 @@ class anud_fp_events_Widget extends WP_Widget {
                        'start_date'     => date( 'Y-m-d H:i:s' )
                     ) );
                     foreach ( $events as $event ) {
+                		$submission_open = get_post_meta($event->ID, 'submission_open', true);
+                		$registration_open = get_post_meta($event->ID, 'registration_open', true);
                     ?>
     				    <li>
     				        <b><?php
@@ -343,17 +345,17 @@ class anud_fp_events_Widget extends WP_Widget {
                 					echo $event_start_date==$event_end_date ?
                 						$event_start_date :
                 						$event_start_date."&mdash;".$event_end_date
-                                
+
                             ?></b>:
                             <a href="<?php echo get_permalink($event) ?>">
                                 <?php echo get_post_shorter_title($event->ID); ?>
-                            </a> |
+                            </a><?php if( $submission_open ) { ?> |
                             <a style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
                                 Подать
-                            </a> |
-                            <a href="<?php echo get_permalink($event) ?>">
+                            </a><?php } ?><?php if( $registration_open ) { ?> |
+                            <a style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
                                 Участвовать
-                            </a><!-- [<?php echo $event->post_parent ?>] -->
+                            </a><?php } ?>
                         </li>
                     <?php
                     }
@@ -612,6 +614,26 @@ add_shortcode( 'anud_prize_laureates_year_group', 'anud_prize_laureates_year_gro
 
 
 
+
+
+
+
+
+
+
+// Hide future menu items
+
+function anud_hide_future_menu_items( $items, $menu, $args ) {
+//    foreach ( $items as $key => $item ) {
+//        wp_die( $item->post_class );
+//        wp_die( json_encode($item) );
+//        if ( $item->slug == 'library' ) {
+//            unset( $items[$key] );
+//        }
+//    }
+    return $items;
+}
+add_filter( 'wp_get_nav_menu_items', 'anud_hide_future_menu_items', null, 3 );
 
 
 ?>
