@@ -3,6 +3,9 @@
 // Disable nl to p
 remove_filter( 'the_content', 'wpautop' );
 remove_filter( 'the_excerpt', 'wpautop' );
+remove_filter( 'the_content', 'shortcode_unautop' );
+remove_filter( 'the_excerpt', 'shortcode_unautop' );
+//add_filter( 'the_content', 'shortcode_unautop' );
 
 
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
@@ -412,10 +415,10 @@ function anud_person_info_shortcode_func( $atts, $content=null ) {
 END;
     return <<<END
 <div style="-display: flex; -flex-wrap: wrap; margin: 15px 0 15px 0;">
-    <h2 style="margin-top: 20px; margin-bottom: 10px; padding: 0;">
+    <h3 style="margin-top: 20px; margin-bottom: 10px; padding: 0;">
         $img
         {$a['name']}
-    </h2>
+    </h3>
     <p>
         $title
         $content
@@ -481,8 +484,11 @@ add_shortcode( 'anud_attraction_info', 'anud_attraction_info_shortcode_func' );
 
 function anud_figure_in_text_shortcode_func( $atts, $content=null ) {
     $a = shortcode_atts( array(
-        'float' => "left",
-        'width' => 180,
+//        'float' => "left",
+        'float' => null,
+//        'width' => "180px",
+        'width' => "auto",
+        'height' => "auto",
         'name' => null,
         'src' => null,
     ), $atts );
@@ -490,37 +496,62 @@ function anud_figure_in_text_shortcode_func( $atts, $content=null ) {
     $content = do_shortcode($content);
 
     $width = $a['width'];
+    $height = $a['height'];
 
     $float = $a['float'];
     if( "left"==$float ) {
-        $margin = "0px 5px 5px 0px;";
+        $margin = "0px 6px 6px 0px;";
     } else if( "right"==$float ) {
-        $margin = "0px 0px 5px 5px;";
+        $margin = "0px 0px 6px 6px;";
     } else {
         $float = "none";
-        $margin = "0px 5px 5px 5px";
+        $margin = "0px 6px 6px 6px";
     }
 
-    return <<<END
-<figure
-    style="-max-width: 50%; text-align: center; margin: $margin; float: $float; -border: thin solid red; display:inline-block;"
->
-    <img
-        class="-size-full"
-        style="margin: 0px; width: {$width}px; -height: 180px; max-width: 100%; -height: auto;"
-        src="{$a['src']}"
-        alt="{$a['name']}"
-    />
+    $figcaption = "";
+    if( $a['name'] )
+        $figcaption = <<<END
     <figcaption
         style="font-size: 80%; padding: 5px;"
     >
         {$a['name']}
     </figcaption>
+END;
+    return <<<END
+<figure
+    style="max-width: 50%; text-align: center; margin: $margin; float: $float; -border: thin solid red; display:inline-block;"
+>
+    <img
+        class="-size-full"
+        style="margin: 0px; width: {$width}; height: {$height}; -height: 180px; max-width: 100%; -height: auto;"
+        src="{$a['src']}"
+        alt="{$a['name']}"
+    />
+    $figcaption
 </figure>
 END;
 }
 add_shortcode( 'anud_figure_in_text', 'anud_figure_in_text_shortcode_func' );
 
+
+function anud_figures_container_shortcode_func( $atts, $content=null ) {
+    $a = shortcode_atts( array(
+//        'float' => null,
+//        'width' => "auto",
+//        'height' => "auto",
+//        'name' => null,
+//        'src' => null,
+    ), $atts );
+
+    $content = do_shortcode($content);
+
+    return <<<END
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; -border: thin solid red;">
+$content
+</div>
+END;
+}
+add_shortcode( 'anud_figures_container', 'anud_figures_container_shortcode_func' );
 
 
 

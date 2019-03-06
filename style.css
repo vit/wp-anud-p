@@ -218,6 +218,10 @@ h1.entry-title {
     padding-bottom: 15px !important;
 }
 
+.entry-content h2 {
+    font-size: 20px;
+}
+
 .entry-content h2,
 .entry-content h3 {
     margin-top: 16px;

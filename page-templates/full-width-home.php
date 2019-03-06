@@ -122,6 +122,15 @@ if ( $taxonomies ) {
 */ ?>
 </div>
 
+<div>
+<?php
+/*
+	global $wp_filter;
+	print_r($wp_filter['the_content']);
+*/
+?>
+</div>
+
 
 
 			<?php // while ( have_posts() ) : the_post(); ?>
