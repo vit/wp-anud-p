@@ -50,7 +50,7 @@ get_header(); ?>
 		</div>
 
 <div class="-entry-content fp-entry-content">
-		<h2 class="entry-title">Новости</h2>
+		<h2 class="entry-title">Главные новости</h2>
 
 		<div class="fp-news-container">
 

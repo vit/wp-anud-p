@@ -500,6 +500,7 @@ function anud_figure_in_text_shortcode_func( $atts, $content=null ) {
     $width = $a['width'];
     $height = $a['height'];
 
+    $max_width = "50%";
     $float = $a['float'];
     if( "left"==$float ) {
         $margin = "0px 6px 6px 0px;";
@@ -508,6 +509,7 @@ function anud_figure_in_text_shortcode_func( $atts, $content=null ) {
     } else {
         $float = "none";
         $margin = "0px 6px 6px 6px";
+        $max_width = "100%";
     }
 
     $figcaption = "";
@@ -521,7 +523,7 @@ function anud_figure_in_text_shortcode_func( $atts, $content=null ) {
 END;
     return <<<END
 <figure
-    style="max-width: 50%; text-align: center; margin: $margin; float: $float; -border: thin solid red; display:inline-block;"
+    style="max-width: $max_width; text-align: center; margin: $margin; float: $float; -border: thin solid red; display:inline-block;"
 >
     <img
         class="-size-full"
