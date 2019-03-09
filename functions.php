@@ -326,7 +326,7 @@ class anud_fp_events_Widget extends WP_Widget {
             <!--div class="fp-news-item box-collapsable"-->
 			<div class="box-container">
 				<h3 class="entry-title">
-					<a href="calendar">Календарь мероприятий</a>
+					<a href="calendar/">Календарь мероприятий</a>
 				</h3>
 				<ul>
     			<?php
@@ -350,11 +350,11 @@ class anud_fp_events_Widget extends WP_Widget {
                             <a href="<?php echo get_permalink($event) ?>">
                                 <?php echo get_post_shorter_title($event->ID); ?>
                             </a><?php if( $submission_open ) { ?> |
-                            <a style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
-                                Подать
+                            <a -style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
+                                Подать статью
                             </a><?php } ?><?php if( $registration_open ) { ?> |
-                            <a style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
-                                Участвовать
+                            <a -style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
+                                Зарегистироваться
                             </a><?php } ?>
                         </li>
                     <?php
