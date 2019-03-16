@@ -178,10 +178,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .top-notice li.top-notice-prize {
-    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/ostryakov_medal_12x12.png') !important;
+    list-style-image: url('/wp-content/uploads/2019/02/ostryakov_medal_12x12.png') !important;
 }
 .top-notice li.top-notice-anud {
-    list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/anud_logo_12x12.png') !important;
+    list-style-image: url('/wp-content/uploads/2019/02/anud_logo_12x12.png') !important;
 }
 
 .top-notice a {
@@ -589,11 +589,24 @@ h2.entry-title,
     .menu-show-big {
         display: none !important;
     }
+    /*
+    .menu-show-big.current-menu-item,
+    .menu-show-big.current-menu-ancestor,
+    .menu-show-big.current-menu-parent {
+        display: inline-block !important;
+    }
+    */
 }
+
+/*
+.menu-show-small.current-menu-ancestor,
+.menu-show-small.current-menu-parent {
+    display: none !important;
+}
+*/
 @media screen and (min-width: 1100px) {
     .menu-show-small {
         display: none !important;
     }
 }
-
 

@@ -400,6 +400,165 @@ add_action( 'widgets_init', 'anud_register_fp_events_Widget' );
 
 
 
+
+
+
+
+
+
+/*
+class anud_fp_events_Widget extends WP_Widget {
+
+    public function __construct() {
+        $widget_options = array( 
+          'classname' => 'anud_fp_events_widget',
+          'description' => 'Anud FP events widget',
+        );
+        parent::__construct( 'anud_fp_events_widget', 'Anud FP Events', $widget_options );
+    }
+
+    public function widget( $args, $instance ) {
+        ?>
+            <?php // print_r( $args ); ?>
+            <?php echo $args['before_widget'] ?>
+            <!--div class="fp-news-item box-collapsable"-->
+			<div class="box-container">
+				<h3 class="entry-title">
+					<a href="calendar/">Календарь мероприятий</a>
+				</h3>
+				<ul>
+    			<?php
+                    $events = tribe_get_events( array( 
+                       'posts_per_page' => 5, 
+                       'start_date'     => date( 'Y-m-d H:i:s' )
+                    ) );
+                    foreach ( $events as $event ) {
+                		$submission_open = get_post_meta($event->ID, 'submission_open', true);
+                		$registration_open = get_post_meta($event->ID, 'registration_open', true);
+                    ?>
+    				    <li>
+    				        <b><?php
+                					$event_start_date = tribe_get_start_date( $event );
+                					$event_end_date = tribe_get_end_date( $event );
+                					echo $event_start_date==$event_end_date ?
+                						$event_start_date :
+                						$event_start_date."&mdash;".$event_end_date
+
+                            ?></b>:
+                            <a href="<?php echo get_permalink($event) ?>">
+                                <?php echo get_post_shorter_title($event->ID); ?>
+                            </a><?php if( $submission_open ) { ?> |
+                            <a -style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
+                                Подать статью
+                            </a><?php } ?><?php if( $registration_open ) { ?> |
+                            <a -style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
+                                Зарегистироваться
+                            </a><?php } ?>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </div>
+            <!--/div-->
+            <?php echo $args['after_widget'] ?>
+        <?php
+
+    }
+}
+*/
+
+function anud_events_shortcode_func( $atts, $content=null ) {
+    $a = shortcode_atts( array(
+        'category' => null,
+        'limit' => null,
+        'direction'=>'upcoming',
+    ), $atts );
+
+    $content = do_shortcode($content);
+    
+//    $title = $a['title'] ? "<b>${a['title']}</b><br/>" : "";
+//    $img = null;
+//    if($a['photo_url'])
+//        $img = <<<END
+//<img src="{$a['photo_url']}" style="width: 150px; max-width: 30%; float: left; margin: 0px 15px 15px 0px;">
+//END;
+    $rez = "";
+
+    $filter = array();
+    if( $a['category'] )
+        $filter['tax_query'] = array(
+            array(
+                'taxonomy' => 'tribe_events_cat',
+                'field' => 'slug',
+                'terms' => $a['category']
+            )
+        );
+    if( $a['limit'] )
+        $filter['posts_per_page'] = $a['limit'];
+    $filter['eventDisplay'] = $a['direction'];
+
+
+    $events = tribe_get_events( $filter );
+    if( empty($events) )
+        return $content;
+    $rez .= <<<END
+			<p -class="box-container">
+				<!--h3 -class="entry-title">
+					<a href="/calendar/">Календарь мероприятий</a>
+				</h3-->
+				<ul>
+END;
+    foreach ( $events as $event ) {
+		$submission_open = get_post_meta($event->ID, 'submission_open', true);
+		$registration_open = get_post_meta($event->ID, 'registration_open', true);
+
+		$event_start_date = tribe_get_start_date( $event );
+		$event_end_date = tribe_get_end_date( $event );
+        $event_dates_text = $event_start_date==$event_end_date ? $event_start_date : $event_start_date."&mdash;".$event_end_date;
+        $event_permalink = get_permalink($event);
+//        $post_title = get_post_shorter_title($event->ID);
+        $post_title = get_the_title($event->ID);
+
+        $rez .= <<<END
+    				    <li>
+    				        <b>$event_dates_text</b>:
+                            <a href="$event_permalink">$post_title</a>
+END;
+        if( $submission_open )
+            $rez .= <<<END
+                            | <a -style="color: #d02030;" href="$event_permalink">Подать статью</a>
+END;
+        if( $registration_open )
+            $rez .= <<<END
+                            | <a -style="color: #d02030;" href="$event_permalink">Зарегистироваться</a>
+END;
+        $rez .= <<<END
+    				    </li>
+END;
+    }
+    $rez .= <<<END
+                </ul>
+            </p>
+END;
+
+
+
+    return $rez;
+}
+add_shortcode( 'anud_events', 'anud_events_shortcode_func' );
+
+
+
+
+
+
+
+
+
+
+
+
 function anud_person_info_shortcode_func( $atts, $content=null ) {
     $a = shortcode_atts( array(
         'name' => null,
