@@ -61,6 +61,7 @@ function fix_tribe_events_category_slug_func($slug){
 //add_rewrite_rule( 'conference/?$', 'index.php?messagetypes=tribe_events', 'top' );
 
 
+/*
 add_action('init', 'custom_permastruct_rewrite');
 function custom_permastruct_rewrite() {
     global $wp_rewrite;
@@ -71,11 +72,8 @@ function custom_permastruct_rewrite() {
     $wp_rewrite->add_permastruct('my_meeting_rule', '/meeting/%slug%', false);
 }
 
-
 function anud_post_type_link_func( $url, $post ) {
     if ( 'tribe_events' == get_post_type( $post ) ) {
-//        return add_query_arg( $_GET, $url );
-//        return add_query_arg( array('a' => 'aa'), $url );
 
         $prefix = "conf/";
 
@@ -88,19 +86,14 @@ function anud_post_type_link_func( $url, $post ) {
             $prefix = "meeting/";
 
         $url = home_url($prefix . $post->post_name);
-//        $url = add_query_arg( array('a' => 'aa'), $url );
-
-
-//        wp_die( json_encode( $terms ) );
-//        wp_die( json_encode( $terms[0]->parent ) );
-//        wp_die( json_encode( $terms[0]->slug ) );
         return $url;
     }
     return $url;
 }
 add_filter( 'post_type_link', 'anud_post_type_link_func', 10, 2 );
+*/
 
-
+/*
 function anud_the_post_action_func( $post_object ) {
     if ( 'tribe_events' == get_post_type( $post_object ) ) {
         //wp_die( json_encode( $post_object->post_parent ) );
@@ -109,19 +102,11 @@ function anud_the_post_action_func( $post_object ) {
     
 }
 add_action( 'the_post', 'anud_the_post_action_func' );
+*/
 
 
 
-
-
-
-function anud_bcn_breadcrumb_trail_object_action_func( $to ) {
-//    $post = get_post();
-//wp_die( json_encode( $post->post_type ) );
-//    if($post && $post->post_type=="tribe_events")
-//        $post->post_type=="tribe_events_meetings";
-}
-
+/*
 function anud_bcn_before_fill_action_func( $bco ) {
     $post = get_post();
 //wp_die( json_encode( $post->post_type ) );
@@ -155,60 +140,11 @@ function anud_bcn_before_fill_action_func( $bco ) {
     }
 
 }
+*/
 
-function anud_bcn_after_fill_action_func( $bco ) {
-
-//    $parent = get_page_by_path('conferences', OBJECT, 'page');
-//    $parent = get_page_by_path('membership/meetings', OBJECT, 'page');
-//wp_die( json_encode( $parent ) );
-
-    $cat_map = array(
-        'meetings' => 'membership/meetings',
-        'conferences' => 'conferences',
-        'icins' => 'conferences'
-    );
-
-    if ( 'tribe_events' == get_post_type( $post_object ) ) {
-        $bc0 = $bco->breadcrumbs[0];
-        $bc0_id = $bc0->ID;
-        $terms = get_the_terms( get_post($bc0_id), 'tribe_events_cat' );
-
-        $cat_slug = null;
-        if( $terms && $terms[0] )
-            $cat_slug = $terms[0]->slug;
-        $path = $cat_map[$cat_slug];
-
-
-        $bc = $bco->breadcrumbs[1];
-        if( $bc ) {
-            $id = $bc->get_id();
-
-            if( $path ) {
-                $parent = get_page_by_path($path, OBJECT, 'page');
-                $id = $parent->ID;
-            }
-
-//            if( $cat_slug == "meetings" ) {
-//                //$prefix = "meeting/";
-//                $parent = get_page_by_path('membership/meetings', OBJECT, 'page');
-//                $id = $parent->ID;
-//            }
-
-            $bco->breadcrumbs[1] = new bcn_breadcrumb(
-                get_the_title( $id ),
-                //get_post_shorter_title( $id ),
-                $bco->opt['Hpost_tribe_events_template'],
-                $bc->get_types(),
-                get_permalink( $id ),
-                $id
-            );
-        }
-    }
-}
-add_action( 'bcn_breadcrumb_trail_object', 'anud_bcn_breadcrumb_trail_object_action_func' );
-add_action( 'bcn_before_fill', 'anud_bcn_before_fill_action_func' );
-//add_action( 'bcn_after_fill', 'anud_bcn_after_fill_action_func' );
-//bcn_breadcrumb_trail_object
+////add_action( 'bcn_breadcrumb_trail_object', 'anud_bcn_breadcrumb_trail_object_action_func' );
+//add_action( 'bcn_before_fill', 'anud_bcn_before_fill_action_func' );
+////add_action( 'bcn_after_fill', 'anud_bcn_after_fill_action_func' );
 
 
 
