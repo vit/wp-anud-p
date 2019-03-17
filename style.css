@@ -380,17 +380,119 @@ h2.entry-title,
     padding: 0 0 0 18px;
 }
 
-.fp-news-container {
-    -padding: 2% 1% 2% 1%;
+
+#home-main-content {
     padding: 1% 1% 1% 1%;
-    -padding: 2% 2% 2% 2%;
-    -padding: 0%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
-    -justify-content: space-between;
+    -justify-content: space-around;
+    justify-content: space-between;
 }
+
+.fp-widgets-container {
+    width: 100%;
+}
+.fp-news-container {
+    width: 100%;
+}
+
+.fp-widgets-container h2.entry-title,
+.fp-news-container h2.entry-title {
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 7px;
+}
+
+
+
+.fp-widgets-content {
+    -padding: 1% 1% 1% 1%;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -justify-content: space-around;
+    -justify-content: space-between;
+    -justify-content: start;
+    -align-items: flex-start;
+
+    -flex-direction:column;
+    justify-content: space-between;
+    -align-content: space-between;
+}
+
+.fp-news-content {
+    -padding: 1% 1% 1% 1%;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -justify-content: space-around;
+    justify-content: space-between;
+}
+
+
+.fp-entry-content {
+    -width: 100%;
+}
+
+
+.fp-first-title {
+    display: none;
+}
+
+@media screen and (min-width: 481px) {
+}
+
+@media screen and (min-width: 769px) {
+    .fp-first-title {
+        display: block;
+    }
+    .fp-widgets-container {
+        width: 33%;
+        order: 2;
+        -border-left: thin dotted #07345b;
+        -border-left: 1px solid #07345b;
+        box-sizing:border-box;
+    }
+    .fp-news-container {
+        width: 67%;
+        -border-right: thin dotted red;
+        -border-right: 1px solid #07345b;
+        box-sizing:border-box;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .fp-widgets-container {
+        padding: 1%;
+        width: 25%;
+        order: 2;
+        -border-left: thin dotted #07345b;
+        box-sizing:border-box;
+    }
+    .fp-news-container {
+        padding: 1%;
+        width: 75%;
+        -border-right: thin dotted red;
+        box-sizing:border-box;
+    }
+}
+
+
+
+
+
+
+
+
+
+.fp-widgets-container .fp-news-item {
+    -width: 100%;
+}
+
+
 
 .fp-news-item {
     box-sizing:border-box;
@@ -399,130 +501,81 @@ h2.entry-title,
     width: 100%;
     -max-width: 100%;
     -padding: 1%;
-    margin: 1%;
-    -margin: 2%;
+
+    -margin: 1%;
+    margin: 5px 1% 1% 1%;
+    -margin: 10px;
+    -margin: 0px;
 
     transition: box-shadow .3s;
-    -border-radius:10px;
     border: 1px solid #ccc;
+    -border: thin solid red !important;
 
-    -border: 2px solid green;
-    -padding-top: 65%;
-    -height: 65%;
     position: relative;
     padding-top: 65%;
-    -padding-top: 15%;
 
     background-repeat: no-repeat;
     background-size: cover;
     -background-position: right 0px top -25px;
     background-position: right 0px top 10%;
+}
 
-    -flex: 1;
-    -flex: 1 1 100%;
-}
 @media screen and (min-width: 481px) {
-    .fp-news-item {
-        -margin: 1%;
-        -width: 46%;
+    .fp-news-container .fp-news-item {
         width: 48%;
-        -max-width: 46%;
         padding-top: 31%;
-        -flex: 1 1 46%;
     }
-/*
-    .fp-news-item.box-item-1 {
-        width: 100%;
-    }
-*/
 }
+
 @media screen and (min-width: 769px) {
-    .fp-news-item {
-        -margin: 1%;
-        -width: 29.33%;
-        width: 31.33%;
-        -max-width: 29.33%;
-        padding-top: 19%;
-        -flex: 1 1 29.33%;
+    .fp-news-container .fp-news-item {
+        width: 48%;
+        padding-top: 31%;
     }
-/*
-    .fp-news-item.box-item-1 {
-        width: 64.66%;
-    }
-*/
 }
 
 @media screen and (min-width: 1025px) {
-    .fp-news-item {
-        -margin: 1%;
-        -width: 21%;
-        width: 23%;
-        -max-width: 21%;
-        padding-top: 14%;
-        -flex: 1 1 21%;
+    .fp-news-container .fp-news-item {
+        width: 31.33%;
+        padding-top: 19%;
     }
-/*
-    .fp-news-item.box-item-1 {
-        width: 48%;
-    }
-*/
 }
+
+@media screen and (max-width: 1024px) {
+    .fp-news-item-2:last-child {
+        display: none;
+    }
+}
+
+
+
 
 .fp-news-item:hover {
     -box-shadow: 1px 1px 1px #777;
     box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
-.fp-news-item-2:last-child {
+/*
+.-fp-news-item-2:last-child {
     display: none;
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-    .fp-news-item:last-child {
+    .-fp-news-item:last-child {
         display: block;
     }
 }
-
-
-
-.-gazeta-img-box {
-    width: 100%;
-    padding-top: 65%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -background-position: right 0px top -25px;
-    background-position: right 0px top 10%;
-    border: thin solid red;
-
-    -background-size: contain;
-    -background-position: center;
-}
-
-/*
-.gazeta-img-box.box-collapsable {
-    padding-top: 0;
-    -background-color: #f0f0f0 !important;
-}
 */
+
+
 
 .fp-news-item.box-collapsable {
     padding-top: 0;
-    -background-color: #f0f0f0 !important;
-    -position: relative;
-
-    -display: flex;
-    -justify-content: center;
-    -align-items: center;
 }
 
 .fp-news-item.box-collapsable .box-container {
     position: relative;
     top: 0;
     padding: 3%;
-
-    -vertical-align: middle;
-    -display: flex;
-    -justify-content: center;
-    -align-items: center;
 }
 
 .fp-news-item.box-collapsable .box-container ul {
@@ -545,33 +598,6 @@ h2.entry-title,
 
 
 
-/*
-.gazeta-img-box:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -border: thin solid blue;
-    -background-color: rgba(127,127,127,0.1);
-}
-.gazeta-img-box:hover:before {
-    background-color: rgba(127,127,127,0);
-}
-*/
-
-/*
-.fp-cat-gazeta li:hover {
-    box-shadow: 0px 0px 2px #777;
-}
-
-.fp-cat-gazeta .gazeta-img {
-    width: 100% !important;
-}
-*/
-
-
 
 .footer-copyright {
     text-align: center;
@@ -585,7 +611,8 @@ h2.entry-title,
 
 
 
-@media screen and (max-width: 1099px) {
+/* @media screen and (max-width: 1099px) { */
+@media screen and (max-width: 1023px) {
     .menu-show-big {
         display: none !important;
     }
@@ -604,7 +631,8 @@ h2.entry-title,
     display: none !important;
 }
 */
-@media screen and (min-width: 1100px) {
+/* @media screen and (min-width: 1100px) { */
+@media screen and (min-width: 1024px) {
     .menu-show-small {
         display: none !important;
     }
