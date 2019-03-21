@@ -640,6 +640,9 @@ h2.entry-title,
 
 
 
+
+
+
 #fp-header .fp-header-bg {
   content: "";
   position: absolute;
@@ -661,11 +664,11 @@ h2.entry-title,
     -background-image: url("http://www.elektropribor.spb.ru/upload/iblock/fa2/86.jpg");
     transition: background 1s linear;
 
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    -webkit-filter: blur(12px);
+    -moz-filter: blur(12px);
+    -o-filter: blur(12px);
+    -ms-filter: blur(12px);
+    filter: blur(7px);
 
 }
 
@@ -703,10 +706,11 @@ h2.entry-title,
     align-items: center;
 }
 
+/*
 html[data-agent*="Trident"] #fp-header .fp-header-container {
     -background-color: rgba(0,0,0,0.1);
 }
-
+*/
 
 #fp-header .fp-header-container h1 {
     color: #fff;

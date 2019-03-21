@@ -22,7 +22,7 @@
         <h1><?php bloginfo( 'name' ); ?></h1>
         <h3><?php bloginfo( 'description' ); ?></h3>
         <?php //echo do_shortcode("[su_button url='/about/' background='#07345b' color='#fff' style='float: right;']Об Академии[/su_button]"); ?>
-        <a href="/about/">Об Академии</a>
+        <a href="<?php echo home_url( '/about/' ); ?>">Об Академии</a>
         <!--a href="/about/">Узнать больше</a-->
 
     </div>
@@ -34,9 +34,9 @@
             var fp_header_bg_images = [
                 //"https://acanud.ru/wp-content/uploads/2019/03/cys_17_participants-1024x438.png",
                 "/wp-content/uploads/2019/03/cys_17_participants-1024x438.png",
-                "http://www.elektropribor.spb.ru/upload/iblock/16f/79.jpg",
+//                "http://www.elektropribor.spb.ru/upload/iblock/16f/79.jpg",
                 "http://www.elektropribor.spb.ru/upload/iblock/fa2/86.jpg",
-                "http://www.elektropribor.spb.ru/upload/iblock/09c/75.jpg",
+//                "http://www.elektropribor.spb.ru/upload/iblock/09c/75.jpg",
                 "http://www.elektropribor.spb.ru/upload/iblock/c1c/c1cf0aef3ba561d84e161dc471676b89.jpg",
                 "http://www.elektropribor.spb.ru/upload/iblock/ec0/ec0cc4dbfe340c506228410648fee304.jpg"
             ];

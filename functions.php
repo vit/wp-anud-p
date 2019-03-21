@@ -562,12 +562,12 @@ function anud_attraction_info_shortcode_func( $atts, $content=null ) {
 END;
     return <<<END
 <div style="margin: 15px 0 15px 0;">
-    <h2 style="margin-top: 20px; margin-bottom: 10px; padding: 0;">
+    <h3 style="margin-top: 20px; margin-bottom: 10px; padding: 0;">
         <a href="{$a['site_url']}" target=_blank>
         $img
         {$a['name']}
         </a>
-    </h2>
+    </h3>
     <p>
         $content
     </p>
@@ -611,7 +611,7 @@ function anud_figure_in_text_shortcode_func( $atts, $content=null ) {
     if( $a['name'] )
         $figcaption = <<<END
     <figcaption
-        style="font-size: 80%; padding: 5px;"
+        style="font-size: 80%; padding: 5px; max-width: $width;"
     >
         {$a['name']}
     </figcaption>
