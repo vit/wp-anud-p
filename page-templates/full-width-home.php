@@ -6,6 +6,37 @@
  * @since Publisho 1.0
  */
 
+
+$GLOBALS['FP_VERSION'] = 1;
+$GLOBALS['FP_SHOW_HERO'] = 1;
+$GLOBALS['FP_COL_ORDER_R'] = 1;
+$GLOBALS['FP_NO_SHADOW'] = 0;
+
+
+if( isset( $_GET['FP_SHOW_HERO'] ) ) {
+	$GLOBALS['FP_SHOW_HERO'] = $_GET['FP_SHOW_HERO'];
+}
+if( isset( $_GET['FP_COL_ORDER_R'] ) ) {
+	$GLOBALS['FP_COL_ORDER_R'] = $_GET['FP_COL_ORDER_R'];
+}
+if( isset( $_GET['FP_NO_SHADOW'] ) ) {
+	$GLOBALS['FP_NO_SHADOW'] = $_GET['FP_NO_SHADOW'];
+}
+
+
+if( isset( $_GET['FP_VERSION'] ) ) {
+	$GLOBALS['FP_VERSION'] = $_GET['FP_VERSION'];
+}
+
+
+switch( $GLOBALS['FP_VERSION'] ) {
+	case 2:
+		$GLOBALS['FP_SHOW_HERO'] = 0;
+		$GLOBALS['FP_COL_ORDER_R'] = 0;
+}
+
+
+
 get_header(); ?>
 
 
@@ -27,14 +58,14 @@ get_header(); ?>
 
 
 	<div id="primary" class="site-content full-width frontpage">
-		<div id="content" role="main">
+		<div id="content" role="main" class="<?php if($GLOBALS['FP_NO_SHADOW']) echo 'fp-no-shadow'; ?>">
 
 
-<?php if ( is_front_page() ) : ?>
+<?php /*if ( is_front_page() ) :*/ ?>
 
 	<div id="home-main-content" style="-display: flex; -border: thin dotted blue;">
 
-		<div class="fp-entry-content fp-widgets-container" -style="border: thin dotted red;">
+		<div class="fp-entry-content fp-widgets-container" style="<?php if( ! $GLOBALS['FP_COL_ORDER_R'] ) echo 'order: inherit;'; ?>">
 			<h2 class="entry-title fp-first-title">Деятельность</h2>
 			<div class="-fp-news-container fp-widgets-content -fp-news-content" -style="border: thin solid red;">
 				<?php for( $i = 0; $i<6; $i++ ) { ?>
@@ -54,7 +85,8 @@ get_header(); ?>
 
 					//$query = new WP_Query("category_name=$catname&showposts=4");
 					//$query = new WP_Query("showposts=9&posts_per_page=-1&ignore_stickie_posts=1");
-					$query = new WP_Query("category_name=$catname&showposts=9&posts_per_page=-1&ignore_stickie_posts=1");
+//					$query = new WP_Query("category_name=$catname&showposts=9&posts_per_page=-1&ignore_stickie_posts=1");
+					$query = new WP_Query("category_name=$catname&showposts=6&posts_per_page=-1&ignore_stickie_posts=1");
 
 					while ($query->have_posts()) : $query->the_post();
 						$do_not_duplicate[] = get_the_ID();
@@ -78,18 +110,18 @@ get_header(); ?>
 	</div><!-- end home-main-content -->
 
 
-<?php endif; ?>
+<?php /*endif;*/ ?>
 
 
 
-<div>
+<!--div>
 <?php
 /*
 	global $wp_filter;
 	print_r($wp_filter['the_content']);
 */
 ?>
-</div>
+</div-->
 
 
 

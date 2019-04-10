@@ -5,7 +5,7 @@
  Author:       Vitaliy Shiegin
  Author URI:   http://comsep.ru
  Template:     publisho
- Version:      0.0.3
+ Version:      0.0.4
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         
@@ -505,7 +505,7 @@ h2.entry-title,
     }
     .fp-widgets-container {
         width: 33%;
-        order: 2;
+        -order: 2; /* !!!!! */
         -border-left: thin dotted #07345b;
         -border-left: 1px solid #07345b;
         box-sizing:border-box;
@@ -522,7 +522,7 @@ h2.entry-title,
     .fp-widgets-container {
         padding: 1%;
         width: 25%;
-        order: 2;
+        -order: 2;
         -border-left: thin dotted #07345b;
         box-sizing:border-box;
     }
@@ -597,7 +597,7 @@ h2.entry-title,
 
 @media screen and (max-width: 1024px) {
     .fp-news-item-2:last-child {
-        display: none;
+        -display: none; /* !!!!! */
     }
 }
 
@@ -639,13 +639,14 @@ h2.entry-title,
     list-style: disc;
     margin: 10px;
 }
+/*
 .fp-news-item.box-collapsable .box-container li.list-item-prize {
     list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/ostryakov_medal_12x12.png');
 }
 .fp-news-item.box-collapsable .box-container li.list-item-anud {
     list-style-image: url('https://acanud.ru/wp-content/uploads/2019/02/anud_logo_12x12.png');
 }
-
+*/
 .fp-news-item.box-collapsable .entry-title {
      text-align: center;
 }
@@ -816,4 +817,15 @@ html[data-agent*="Trident"] #fp-header .fp-header-bg {
 html[data-agent*="Trident"] #fp-header .fp-header-bg-ie {
   -display: block;
 }
+
+
+
+
+.fp-no-shadow .fp-news-item,
+.fp-no-shadow .fp-news-item:hover {
+    box-shadow: none;
+    transition: none;
+    border: none;
+}
+
 

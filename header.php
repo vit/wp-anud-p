@@ -49,7 +49,7 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 	</nav><!-- #site-navigation -->
 	<div class="clear"></div>
 	<header id="masthead" class="site-header" role="banner">
-		<?php if( is_front_page() ) { ?>
+		<?php if( is_front_page() && $GLOBALS['FP_SHOW_HERO'] ) { ?>
 			<?php get_template_part( 'partials/frontpage', 'header' ); ?>
 		<?php } else { ?>
 
