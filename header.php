@@ -31,7 +31,13 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<?php
+	$GLOBALS['CUSTOM_BG_COLOR'] = null;
+	if( isset( $_GET['CUSTOM_BG_COLOR'] ) ) {
+		$GLOBALS['CUSTOM_BG_COLOR'] = $_GET['CUSTOM_BG_COLOR'];
+	}
+?>
+<body <?php body_class(); ?> style='<?php echo $GLOBALS["CUSTOM_BG_COLOR"] ? "background-color: #". $GLOBALS["CUSTOM_BG_COLOR"] ." !important;" : ""; ?>'>
 <div id="page" class="site">
 	<div class="0-publisho-top-mobile-nav clear"></div>
 	<nav id="site-navigation" class="themonic-nav" role="navigation">
@@ -81,9 +87,9 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 
 		<nav id="site-navigation" class="themonic-nav" role="navigation" style="-border: thin solid red; position: relative;">
 			<div class="menu-primary-container">
-<?php if(  is_front_page() /*is_home()*/ ) { ?>
+<?php //if(  is_front_page() /*is_home()*/ ) { ?>
 				<div class="lang_flag lang_flag_desktop" style="bborder: thin solid green; position: absolute; right: 20px; top: 16px;"><?php if ( function_exists( 'the_msls' ) ) the_msls(); ?></div>
-<?php } ?>
+<?php //} ?>
 				<?php wp_nav_menu(array('container'=>false, 'theme_location' => 'primary', 'menu_id' => 'menu-top', 'menu_class' => 'nav-menu')) ?>
 			</div>
 		</nav>
@@ -96,7 +102,7 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 <?php if ( function_exists('yoast_breadcrumb') && !is_front_page() ) { ?>
 <div id="breadcrumbs" class="breadcrumbs" style="background-color: #eee; ccolor: white;">
 <div class="-container -themonic-nav" style="padding: 10px 20px; ffont-size: 80%; bborder: thin solid red; position: relative;">
-	<div class="lang_flag lang_flag_desktop" style="bborder: thin solid green; position: absolute; right: 20px; top: 10px;"><?php if ( function_exists( 'the_msls' ) ) the_msls(); ?></div>
+	<!--div class="lang_flag lang_flag_desktop" style="bborder: thin solid green; position: absolute; right: 20px; top: 10px;"><?php //if ( function_exists( 'the_msls' ) ) the_msls(); ?></div-->
 	<?php bcn_display(); ?>
 	<?php //yoast_breadcrumb('<p id="breadcrumbs">','</p>'); ?>
 
