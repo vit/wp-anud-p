@@ -59,7 +59,7 @@
                     </div>
                     <div -style="position: absolute; bottom: 0; padding: 10px;" style="text-align: right;">
                         <?php if( $event->submission_open ) { ?>
-                        <a class="event-button" -style="color: #d02030;" href="<?php echo get_permalink($event).'#submit' ?>">
+                        <a class="event-button" -style="color: #d02030;" href="<?php echo get_permalink($event).'#submit_paper' ?>">
                             Подать доклад
                         </a><?php } ?><?php if( $event->registration_open ) { ?>
                         <a class="event-button" -style="color: #d02030;" href="<?php echo get_permalink($event).'#register' ?>">
