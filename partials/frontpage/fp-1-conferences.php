@@ -52,7 +52,7 @@
                         <?php echo wpautop( $event->post_title ); ?>
                         </a>
                     </h3>
-                    <div>
+                    <div class="event-content">
                         <?php //echo the_content($event->ID); ?>
                         <?php //echo wpautop( $event->post_content ); ?>
                         <?php echo wpautop( $event->post_excerpt ); ?>
