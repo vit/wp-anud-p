@@ -1,12 +1,13 @@
 <?php
 /**
- * Template Name: Full-width For Frontpage
+ * Template Name: Frontpage 1
  *
  * @package WordPress - Themonic Framework
  * @since Publisho 1.0
  */
 
 
+/*
 $GLOBALS['FP_VERSION'] = 1;
 $GLOBALS['FP_SHOW_HERO'] = 1;
 $GLOBALS['FP_COL_ORDER_R'] = 1;
@@ -34,36 +35,23 @@ switch( $GLOBALS['FP_VERSION'] ) {
 		$GLOBALS['FP_SHOW_HERO'] = 0;
 		$GLOBALS['FP_COL_ORDER_R'] = 0;
 }
+*/
 
 $GLOBALS['IS_FRONTPAGE'] = 1;
 
-
-
 get_header(); ?>
 
+<div id="primary" class="site-content full-width frontpage frontpage-1">
+	<div id="content" role="main" -class="<?php if($GLOBALS['FP_NO_SHADOW']) echo 'fp-no-shadow'; ?>">
 
 
-
-<!--div class="top-block" style="height: 50vh; position: relative; background-image: url(https://images.unsplash.com/photo-1445813792994-1d804a9453c9); background-size: cover; bbackground-attachment: fixed; background-position-y: center; z-index: 201; border: thick red solid;">
-
-
-    <div class="top-block-content" style="width: 100%; position: absolute; bottom: 0; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; z-index: 1; bborder: thin red solid;" ss="display: flex; flex-direction: column; justify-content: flex-end; background-image: url(https://next.elektropribor.spb.ru/wp-content/uploads/2018/02/bob-burkhard-41360-unsplash-1024x629.jpg); background-size: cover; background-position-y: center; z-index: 201;">
-
-        <div style="bborder: thick green solid; pposition: absolute; bbottom: 0; width: 100%;">
-        <div class="container" style="display: flex; align-items: flex-end; bborder: thin red solid; pposition: absolute; bbottom: 0;">
-            <h1 style="color: white; text-shadow: 1px 1px 2px black;">Главная</h1>
-		</div>
-        </div>
-
-    </div>
-</div-->
+<?php get_template_part( 'partials/frontpage/fp-1', 'hero' ); ?>
+<?php get_template_part( 'partials/frontpage/fp-1', 'news' ); ?>
+<?php get_template_part( 'partials/frontpage/fp-1', 'conferences' ); ?>
+<?php get_template_part( 'partials/frontpage/fp-1', 'journal' ); ?>
 
 
-	<div id="primary" class="site-content full-width frontpage">
-		<div id="content" role="main" class="<?php if($GLOBALS['FP_NO_SHADOW']) echo 'fp-no-shadow'; ?>">
-
-
-<?php /*if ( is_front_page() ) :*/ ?>
+<?php /* ?>
 
 	<div id="home-main-content" style="-display: flex; -border: thin dotted blue;">
 
@@ -111,27 +99,8 @@ get_header(); ?>
 
 	</div><!-- end home-main-content -->
 
+<?php */ ?>
 
-<?php /*endif;*/ ?>
-
-
-
-<!--div>
-<?php
-/*
-	global $wp_filter;
-	print_r($wp_filter['the_content']);
-*/
-?>
-</div-->
-
-
-
-			<?php // while ( have_posts() ) : the_post(); ?>
-				<?php // get_template_part( 'content', 'page' ); ?>
-				<?php // // comments_template( '', true ); ?>
-			<?php // endwhile; // end of the loop. ?>
-
-		</div><!-- #content -->
-	</div><!-- #primary -->
+	</div><!-- #content -->
+</div><!-- #primary -->
 <?php get_footer(); ?>

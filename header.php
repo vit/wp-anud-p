@@ -98,7 +98,8 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 
 		<div class="clear"></div>
 
-<?php if(function_exists('bcn_display') && !is_front_page() /*is_home()*/ ) { ?>
+<?php /*if(function_exists('bcn_display') && !is_front_page() ) { */ ?>
+<?php if(function_exists('bcn_display') && !isset($GLOBALS['IS_FRONTPAGE']) ) { ?>
 <?php if ( function_exists('yoast_breadcrumb') && !is_front_page() ) { ?>
 <div id="breadcrumbs" class="breadcrumbs" style="background-color: #eee; ccolor: white;">
 <div class="-container -themonic-nav" style="padding: 10px 20px; ffont-size: 80%; bborder: thin solid red; position: relative;">

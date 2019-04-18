@@ -1,0 +1,160 @@
+
+.frontpage-1 {
+    
+}
+
+.frontpage-1 .fp1-row {
+    margin: 0;
+    -margin: 20px 0 20px 0;
+    -padding: 20px 0 20px 0;
+    font-size: 16px;
+    background-color: #eee;
+    border: 0px solid #777;
+    overflow:auto;
+}
+
+.frontpage-1 .fp1-row.fp1-hero {
+    border-top: none;
+    -margin: 0 0 20px 0;
+}
+
+.frontpage-1 .fp1-row.fp1-conferences {
+    -border-top: none;
+    -margin: 0 0 20px 0;
+
+    background: url(http://www.elektropribor.spb.ru/upload/iblock/9af/9af7501bdd6fb2d6c690ce43c777e5b7.png);
+    -background: url(/wp-content/uploads/2019/04/IMGP3145-2019.jpg);
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: auto 100vh;
+    background-position: center;
+}
+
+
+.frontpage-1 .fp1-row h1 {
+    color: #07345b;
+    -margin: 25px 0 15px 0;
+    margin: 2% 0 1% 0;
+    -margin: 25px 0 25px 0;
+    padding: 10px;
+    font-size: 36px;
+    -font-weight: normal;
+    font-weight: 100;
+    text-align: center;
+    -display: block;
+}
+
+
+/* Conferences */
+
+.frontpage-1 .fp1-row.fp1-conferences h1 {
+    -background-color: rgba(255,255,2555,0.9);
+    color: #fff;
+    text-shadow: 1px 1px 2px black;
+}
+
+.frontpage-1 .fp1-row.fp1-conferences .events-container {
+    display: flex;
+    flex-direction: row;
+    -border: thin solid red;
+
+    -align-items: flex-start;
+    -justify-content: space-around;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    -height: 100%;
+}
+
+.frontpage-1 .fp1-row.fp1-conferences .events-item {
+    width: 31.3%;
+    -width: 30%;
+    padding: 15px;
+    -margin: 15px;
+    margin: 1%;
+    -margin: 1.6%;
+    -margin-bottom: 30px;
+    -border: thin solid green;
+    -background-color: #fff;
+    background-color: rgba(255,255,2555,0.9);
+    box-shadow: 1px 1px 4px #ddd;
+    box-sizing: border-box;
+}
+
+.frontpage-1 .fp1-row.fp1-conferences .events-item .date {
+    -color: #d02030;
+    color: #07345b;
+    font-weight: bold;
+}
+
+.frontpage-1 .fp1-row.fp1-conferences .events-item .event-button {
+    display: inline-block;
+    -border: thin solid gray;
+    -border: thin solid gray;
+    -border-radius: 5px;
+    -box-shadow: 1px 1px 4px #777;
+    text-decoration: none;
+    -color: inherit;
+    -color: #fff;
+    color: #ddd;
+    background-color: #07345b;
+    padding: 8px;
+}
+.frontpage-1 .fp1-row.fp1-conferences .events-item .event-button:hover {
+    -box-shadow: 1px 1px 4px #777;
+    box-shadow: 1px 1px 4px #000;
+    -color: #d02030;
+    color: #fff;
+}
+
+
+
+/* Journal */
+
+.frontpage-1 .fp1-row.fp1-journal .journal-container {
+    display: flex;
+    flex-direction: row;
+    -border: thin solid red;
+
+    -align-items: flex-start;
+    -justify-content: space-around;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    -height: 100%;
+}
+
+.frontpage-1 .fp1-row.fp1-journal .journal-item {
+    width: 31.3%;
+    -width: 30%;
+    padding: 15px;
+    -margin: 15px;
+    margin: 1%;
+    -background-color: rgba(255,255,2555,0.9);
+    -box-shadow: 1px 1px 4px #ddd;
+    box-sizing: border-box;
+}
+
+.frontpage-1 .fp1-row.fp1-journal .journal-item img {
+    height: 300px;
+}
+
+.frontpage-1 .fp1-row.fp1-journal .journal-item .journal-button {
+    display: inline-block;
+    -border: thin solid gray;
+    -border: thin solid gray;
+    -border-radius: 5px;
+    -box-shadow: 1px 1px 4px #777;
+    text-decoration: none;
+    -color: inherit;
+    -color: #fff;
+    color: #ddd;
+    -background-color: #07345b;
+    background-color: #d02030;
+    padding: 8px;
+}
+.frontpage-1 .fp1-row.fp1-journal .journal-item .journal-button:hover {
+    box-shadow: 1px 1px 4px #777;
+    -box-shadow: 1px 1px 4px #000;
+    -color: #d02030;
+    color: #fff;
+}
+

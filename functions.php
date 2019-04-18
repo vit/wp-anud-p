@@ -21,6 +21,13 @@ function my_theme_enqueue_styles() {
         wp_get_theme()->get('Version')
     );
 */
+
+    wp_enqueue_style( 'child-style',
+        get_stylesheet_directory_uri() . "/css/frontpage-1.css?$t",
+        array( $parent_style ),
+        wp_get_theme()->get('Version')
+    );
+
 }
 
 /*
