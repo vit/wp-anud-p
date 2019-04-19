@@ -63,7 +63,7 @@
                             Подать доклад
                         </a><?php } ?><?php if( $event->registration_open ) { ?>
                         <a class="event-button" -style="color: #d02030;" href="<?php echo get_permalink($event).'#register' ?>">
-                            Зарегистрироваться
+                            Регистрация
                         </a><?php } ?>
                     </div>
                 </div>

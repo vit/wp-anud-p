@@ -23,7 +23,7 @@
                 </a>
 		    </center>
         </div>
-		<div class="journal-item entry-content">
+		<div class="journal-item entry-content journal-item-links">
 		    <center>
                         <p>
                         <a class="journal-button" href="<?php echo home_url( '/journal/#submit' ); ?>">
@@ -37,17 +37,6 @@
                         </p>
 		    </center>
         </div>
-
-			    <!--div class="events-item entry-content" -style="position: relative;">
-                    <div style="text-align: right;">
-                        <?php
-                            $category = get_term_by('slug', 'conferences', 'tribe_events_cat');
-                        ?>
-                        <a class="event-button" -style="color: #d02030;" href="<?php echo get_term_link($category); ?>">
-                            Все конференции
-                        </a>
-                    </div>
-                </div-->
 
     </div>
 
