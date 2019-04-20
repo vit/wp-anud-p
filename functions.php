@@ -298,7 +298,7 @@ class anud_fp_events_Widget extends WP_Widget {
                                 Подать статью
                             </a><?php } ?><?php if( $registration_open ) { ?> |
                             <a -style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
-                                Зарегистироваться
+                                Зарегистрироваться
                             </a><?php } ?>
                         </li>
                     <?php
@@ -396,7 +396,7 @@ class anud_fp_events_Widget extends WP_Widget {
                                 Подать статью
                             </a><?php } ?><?php if( $registration_open ) { ?> |
                             <a -style="color: #d02030;" href="<?php echo get_permalink($event) ?>">
-                                Зарегистироваться
+                                Зарегистрироваться
                             </a><?php } ?>
                         </li>
                     <?php
@@ -475,7 +475,7 @@ END;
 END;
         if( $registration_open )
             $rez .= <<<END
-                            | <a -style="color: #d02030;" href="$event_permalink">Зарегистироваться</a>
+                            | <a -style="color: #d02030;" href="$event_permalink#register">Зарегистрироваться</a>
 END;
         $rez .= <<<END
     				    </li>
