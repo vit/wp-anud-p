@@ -26,6 +26,8 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
+
+
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
 <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -38,6 +40,15 @@ if( $GLOBALS['REPLACE_CANONICAL_HOST'] )
 	}
 ?>
 <body <?php body_class(); ?> style='<?php echo $GLOBALS["CUSTOM_BG_COLOR"] ? "background-color: #". $GLOBALS["CUSTOM_BG_COLOR"] ." !important;" : ""; ?>'>
+
+
+
+<?php
+/* GOOGLE TAG MANAGER */
+if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); }
+?>
+
+
 <div id="page" class="site">
 	<div class="0-publisho-top-mobile-nav clear"></div>
 	<nav id="site-navigation" class="themonic-nav" role="navigation">

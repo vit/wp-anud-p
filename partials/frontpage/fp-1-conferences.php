@@ -84,5 +84,11 @@
 
     </div>
 
+    <!--div class="events-all-link">
+        <a class="event-button" href="<?php echo get_term_link( 'conferences', 'tribe_events_cat' ); ?>">
+            Все конференции
+        </a>
+    </div-->
+
 
 </section>

@@ -1,5 +1,5 @@
 <section class="fp1-row fp1-journal">
-    <h1>Журнал "Гироскопия и Навигация"</h1>
+    <h1>Журнал "Гироскопия и навигация"</h1>
 
 
 	<div class="journal-container">

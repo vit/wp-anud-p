@@ -1,5 +1,5 @@
 <section class="fp1-row fp1-news">
-    <h1>Новости</h1>
+    <h1>Новости и сообщения</h1>
 
 
     <div class="news-columns">
@@ -40,7 +40,7 @@
             </div>
 
             <div class="news-news-bottom-link">
-                <a class="news-button button-secondary" href="<?php echo get_term_link( get_category_by_slug( "news" ) ); ?>">
+                <a class="anud-button -half-transparent -news-button -button-secondary" href="<?php echo get_term_link( get_category_by_slug( "news" ) ); ?>">
                     Все новости
                 </a>
             </div>
@@ -72,7 +72,7 @@
     					</div>
 
                         <div class="news-gazeta-bottom-link">
-                            <a class="news-button button-secondary" href="<?php echo get_term_link( get_category_by_slug( "gazeta" ) ); ?>">
+                            <a class="anud-button -half-transparent -news-button -button-secondary" href="<?php echo get_term_link( get_category_by_slug( "gazeta" ) ); ?>">
                                 Все номера
                             </a>
                         </div>
@@ -85,7 +85,7 @@
 
             </div>
         	<div class="news-notices-container entry-content">
-                <h2 class="entry-title">Уведомления</h3>
+                <h2 class="entry-title">Сообщения</h3>
         	    <ul -style="list-style-type: none; margin: 0; padding: 0;">
 
     				<?php
@@ -108,8 +108,8 @@
 
         	    </ul>
                         <div class="news-notices-bottom-link"  -style="text-align: center;">
-                            <a class="news-button button-secondary" href="<?php echo get_term_link( get_category_by_slug( "notices" ) ); ?>">
-                                Все уведомления
+                            <a class="anud-button -half-transparent -news-button -button-secondary" href="<?php echo get_term_link( get_category_by_slug( "notices" ) ); ?>">
+                                Все сообщения
                             </a>
                         </div>
             </div>
