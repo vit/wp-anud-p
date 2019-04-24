@@ -76,6 +76,11 @@ if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); }
 			
 			<div class="themonic-logo">
 			<?php publisho_the_custom_logo(); ?>
+				<div style="-border: thin solid red; display: inline-block; -height: 100%; vertical-align: middle;">
+					<h1 style="margin: auto 5px; -display: inline-block; -margin: 40px 0;">
+						<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
+					</h1>
+				</div>
 			</div>
 			<div id="publisho-head-widget" class="head-widget-area">
 					<div class="pmt-head-widget">

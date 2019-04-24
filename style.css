@@ -832,3 +832,23 @@ html[data-agent*="Trident"] #fp-header .fp-header-bg-ie {
 /*
 logo color: #07345b
 */
+
+
+
+/* trash */
+body {
+    background-color: #e6f0fa !important;
+}
+.site {
+    background-color: #e6f0fa;
+}
+.themonic-logo img {
+    vertical-align: middle;
+}
+.themonic-logo img {
+    height: 85px !important;
+    width: 85px !important;
+    vertical-align: middle;
+}
+
+
