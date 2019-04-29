@@ -741,4 +741,39 @@ function anud_hide_future_menu_items( $items, $menu, $args ) {
 add_filter( 'wp_get_nav_menu_items', 'anud_hide_future_menu_items', null, 3 );
 
 
+
+
+add_filter('wpseo_title', 'anud_get_document_title_filter', 10, 1);
+/*
+function custom_titles() {
+
+  global $wp;
+  $current_slug = $wp->request;
+
+  if ($current_slug == 'foobar') {
+
+    return 'Foobar';
+  }
+}
+*/
+
+
+//add_filter("pre_get_document_title", "anud_document_title_filter");
+//add_filter("wp_title", "anud_get_document_title_filter", 1, 2);
+function anud_get_document_title_filter($old_title) {
+    global $post;
+    $page_custom_title = get_post_meta($post->ID, 'page_custom_title', true);
+    return $page_custom_title ? $page_custom_title : $old_title;
+}
+
+
+
+/*
+add_filter( 'document_title_parts', function ( $title ) {
+//    if ( is_home() || is_front_page() )
+        unset($title['tagline']);
+    return $title;
+}, 10, 1 );
+*/
+
 ?>
