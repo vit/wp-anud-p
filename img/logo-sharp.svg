@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     wwidth="100%" height="100%"
+     viewbox="1 1 250 250"
+     ppreserveAspectRatio="x250Y250 meet"
+>
+
+
+  <defs>
+    <filter id="dropshadow" hheight="130%" ccolor-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/> 
+      <feOffset dx="12" dy="12" result="shadow"/>
+      <!--feOffset dx="2" dy="2" result="offsetblur"/-->
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+
+<!--feComponentTransfer in="SourceAlpha">
+         <feFuncR type="discrete" tableValues="1"/>
+         <feFuncG type="discrete" tableValues="0"/>
+         <feFuncB type="discrete" tableValues="0"/>
+     </feComponentTransfer-->
+
+
+    </filter>
+  </defs>
+
+
+	<style type="text/css">
+
+svg {
+  filter: url('#dropshadow');
+  ffilter: drop-shadow( 0 2px 1px red );
+  f-webkit-filter: drop-shadow( 0 2px 1px red );
+}
+svg:hover #compass {
+	transform-origin: 126px 126px;
+  transform: rotate(10deg);
+}
+svg:hover #wheel{
+	transform-origin: 126px 126px;
+	transform: rotate(10deg);
+	-transition: all 0.5s;
+	-fill: #FFF;
+}
+
+	</style>
+
+
+  <path id="compass" d="M25 126
+           A 130 130 0 0 1 126 227
+           A 130 130 0 0 1 227 126
+           A 130 130 0 0 1 126 25
+           A 130 130 0 0 1 25 126
+
+           M50 126
+           L 110 110
+           L 126 50
+           L 142 110
+           L 202 126
+           L 142 142
+           L 126 202
+           L 110 142
+           L 50 126
+"
+           stroke="#07345b" fill="#07345b" stroke-width="1" ffill-opacity="0.9"
+  />
+
+  <path id="wheel" d="M 126 1
+           A 125 125 0 1 0 126.001 1
+           M 126 6
+           A 112 112 0 1 1 126 230
+           l 0 16
+           A 111 111 0 1 1 126 22
+           l 0 -16
+"
+           fill="#07345b" stroke-width="1" ffill-opacity="0.9"
+  />
+
+</svg>
+
