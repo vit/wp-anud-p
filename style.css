@@ -190,8 +190,16 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .themonic-logo {
-    padding: 12px;
+    -padding: 12px;
+    padding: 4px !important;
+    margin: 4px 0 !important;
 }
+
+.pmt-head-widget {
+    padding: 10px 10px 10px 0;
+    -text-align: center;
+}
+
 
 @media screen and (max-width: 768px) {
     .themonic-logo {
@@ -211,6 +219,7 @@ h1,h2,h3,h4,h5,h6 {
 
     .pmt-head-widget {
         padding: 20px 20px 20px 20px;
+        -padding: 10px 10px 10px 10px;
         -text-align: center;
     }
     .pmt-head-widget .box-container {

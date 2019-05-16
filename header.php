@@ -75,12 +75,25 @@ if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); }
 				<?php if ( get_theme_mod( 'custom_logo' ) ) : ?>
 			
 			<div class="themonic-logo">
-			<?php publisho_the_custom_logo(); ?>
+
+			<?php
+				$devel_logo = 0;
+				if( isset( $_GET['DEVEL_LOGO'] ) ) {
+					$devel_logo = $_GET['DEVEL_LOGO'];
+				}
+			?>
+			<?php if($devel_logo) { ?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+					<?php get_template_part( 'partials/logo/logo', '1' ); ?>
+				</a>
+			<?php } else { ?>
+				<?php publisho_the_custom_logo(); ?>
 				<div style="-border: thin solid red; display: inline-block; -height: 100%; vertical-align: middle;">
 					<h1 style="margin: auto 5px; -display: inline-block; -margin: 40px 0;">
 						<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>
 					</h1>
 				</div>
+			<?php } ?>
 			</div>
 			<div id="publisho-head-widget" class="head-widget-area">
 					<div class="pmt-head-widget">
