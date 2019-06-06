@@ -258,22 +258,7 @@ svg:hover #wheel{
 
 
 
-<!--text x="1000" y="65" class="text-subtitle" style="" text-anchor="end">
-    International
-</text>
-<text x="1000" y="105" class="text-subtitle-2" style="" text-anchor="end">
-    Public Association
-</text>
-
-<path d="M 1000 126 l -735 0" stroke="#07345b" stroke-width="2px" />
-
-<text x="1000" y="190" class="text-main" style="" text-anchor="end" >
-    Academy of Navigation
-</text>
-<text x="1000" y="240" class="text-main" style="" text-anchor="end" >
-    and Motion Control
-</text-->
-
+<?php if (get_locale() == 'ru_RU') { ?>
 
 <text x="1000" y="65" class="text-subtitle" style="" text-anchor="end">
     Международная
@@ -291,7 +276,25 @@ svg:hover #wheel{
     и управления движением
 </text>
 
+<?php } else { ?>
 
+<text x="1000" y="65" class="text-subtitle" style="" text-anchor="end">
+    International
+</text>
+<text x="1000" y="105" class="text-subtitle-2" style="" text-anchor="end">
+    Public Association
+</text>
+
+<path d="M 1000 126 l -735 0" stroke="#07345b" stroke-width="2px" />
+
+<text x="1000" y="190" class="text-main" style="" text-anchor="end" >
+    Academy of Navigation
+</text>
+<text x="1000" y="240" class="text-main" style="" text-anchor="end" >
+    and Motion Control
+</text>
+
+<?php } ?>
 
 
 </svg>

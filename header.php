@@ -77,11 +77,12 @@ if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); }
 			<div class="themonic-logo">
 
 			<?php
-				$devel_logo = 0;
+				$devel_logo = 1;
 				if( isset( $_GET['DEVEL_LOGO'] ) ) {
 					$devel_logo = $_GET['DEVEL_LOGO'];
 				}
 			?>
+
 			<?php if($devel_logo) { ?>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 					<?php get_template_part( 'partials/logo/logo', '1' ); ?>
@@ -100,6 +101,8 @@ if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); }
 	                <?php if( is_active_sidebar( 'pmt-tophead-banner' ) ) dynamic_sidebar( 'pmt-tophead-banner' ); ?>
 					</div>
 			</div>
+
+
 			<?php else : ?>
 				<div class="th-title-description">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>

@@ -494,11 +494,13 @@
     -border-top: none;
     -margin: 0 0 20px 0;
     -height: 60vh;
-    min-height: 50vh;
+    -min-height: 50vh;
+    min-height: 30vh;
 
     -border: 5px solid red;
     -margin: 0px;
     padding: 50px 0;
+    -padding: 20px 0;
 
 
     -background: url(http://www.elektropribor.spb.ru/upload/iblock/9af/9af7501bdd6fb2d6c690ce43c777e5b7.png);
@@ -522,14 +524,14 @@
 
     display: flex;
     align-items: center;
-    -justify-content: flex-end;
-    justify-content: center;
+    justify-content: flex-end;
+    -justify-content: center;
     -flex-direction: column;
     -text-align: center;
     
 
-    position: relative;
-    overflow: visible;
+    -position: relative;
+    -overflow: visible;
 
 }
 
@@ -541,25 +543,60 @@
     max-width: 30em;
     -margin: 20px auto;
     padding: 20px;
+    padding-left: 30px;
     -padding: 50px;
     color: #fff;
     text-shadow: 1px 1px 2px black;
     -background-color: #07345b;
-    background-color: rgba(7,52,91,0.6);
+    -background-color: rgba(7,52,91,0.6);
+    background-color: rgba(7,52,91,0.5);
     -background-color: #fff;
 
-    
-    position: relative;
-    -bottom: -300px;
-    bottom: -350px;
-    z-index: 100;
+
+    -position: relative;
+    -bottom: -350px;
+    -z-index: 100;
+
+    -font-family: Arial, sans-serif;
+    text-shadow: none;
 }
 
 .frontpage-1 .fp1-row.fp1-hero .fp1-hero-block h2 {
     font-size: 28px;
+    font-weight: 400;
     color: #fff;
-    text-shadow: 1px 1px 2px black;
+    -text-shadow: 1px 1px 1px black;
+    text-shadow: none;
+    line-height: 1.2;
+    margin: 12px 0 12px 0;
 }
+
+.frontpage-1 .fp1-row.fp1-hero .fp1-hero-block li {
+    list-style-type: none;
+}
+.frontpage-1 .fp1-row.fp1-hero .fp1-hero-block li {
+    -margin-left: 0;
+    margin: 10px 0;
+    line-height: 1.3;
+    -color: #eee;
+    color: #d5d5d5;
+    -text-shadow: 1px 1px 1px black;
+}
+.frontpage-1 .fp1-row.fp1-hero .fp1-hero-block .anud-button {
+    margin-left: 0;
+    margin-right: 10px;
+    color: #fff;
+}
+.frontpage-1 .fp1-row.fp1-hero .fp1-hero-block .anud-button:last-child {
+    margin-right: 0;
+}
+
+.frontpage-1 .fp1-row.fp1-hero .fp1-hero-block .fp-hero-button-primary {
+}
+.frontpage-1 .fp1-row.fp1-hero .fp1-hero-block .fp-hero-button-secondary {
+    color: #d5d5d5;
+}
+
 
 
 
@@ -568,22 +605,25 @@
 
 
 .frontpage-1 .fp1-row.fp1-hero2 {
+    display: none;
+/*
     -padding: 50px 0;
     padding: 0 0;
     -background-size: auto 100vh;
     -background: url(http://www.elektropribor.spb.ru/upload/iblock/ec0/ec0cc4dbfe340c506228410648fee304.jpg) no-repeat center center fixed; 
     -background: none;
 
-    background-color: #e6f0fa;
+    -background-color: #e6f0fa;
 
 
     display: flex;
-    -align-items: center;
-    -justify-content: flex-end;
-    justify-content: center;
-    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    -justify-content: center;
+    -position: relative;
     -height: 250px;
     height: 300px;
+*/
 }
 
 /*

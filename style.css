@@ -198,6 +198,7 @@ h1,h2,h3,h4,h5,h6 {
 .pmt-head-widget {
     padding: 10px 10px 10px 0;
     -text-align: center;
+    color: #07345b;
 }
 
 
@@ -845,6 +846,7 @@ logo color: #07345b
 
 
 /* trash */
+/*
 body {
     background-color: #e6f0fa !important;
 }
@@ -859,5 +861,36 @@ body {
     width: 85px !important;
     vertical-align: middle;
 }
+*/
 
 
+
+.site-header {
+    text-align: left !important;
+}
+
+/*
+.site-header {
+    -display: flex;
+    vertical-align: bottom !important;
+}
+
+header#masthead {
+    -position: relative !important;
+}
+#publisho-head-widget {
+    margin-top: auto;
+    margin-bottom: 0;
+    -display: table-cell;
+    display: inline-block;
+    vertical-align: bottom;
+    -display: table;
+    -position: absolute;
+    position: relative;
+    bottom: 0;
+    -right: 0;
+    overflow: hidden;
+    height: 100% !important;
+    border: thin solid red;
+}
+*/
