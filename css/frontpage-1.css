@@ -586,6 +586,7 @@
     margin-left: 0;
     margin-right: 10px;
     color: #fff;
+    -font-weight: 600 !important;
 }
 .frontpage-1 .fp1-row.fp1-hero .fp1-hero-block .anud-button:last-child {
     margin-right: 0;
@@ -594,7 +595,7 @@
 .frontpage-1 .fp1-row.fp1-hero .fp1-hero-block .fp-hero-button-primary {
 }
 .frontpage-1 .fp1-row.fp1-hero .fp1-hero-block .fp-hero-button-secondary {
-    color: #d5d5d5;
+    -color: #d5d5d5;
 }
 
 

@@ -869,6 +869,13 @@ body {
     text-align: left !important;
 }
 
+@media screen and (max-height: 600px) {
+    body .site {
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
+    }
+}
+
 /*
 .site-header {
     -display: flex;
