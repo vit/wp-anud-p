@@ -776,4 +776,24 @@ add_filter( 'document_title_parts', function ( $title ) {
 }, 10, 1 );
 */
 
+
+
+
+
+// REST API get menu
+
+function anud_rest_api_get_menu( WP_REST_Request $request ) {
+    # Change 'menu' to your own navigation slug.
+//    return wp_get_nav_menu_items('primary');
+    return wp_get_nav_menu_items($request['menu_name']);
+}
+
+add_action( 'rest_api_init', function () {
+        register_rest_route( 'anud/v1', '/menu/(?P<menu_name>.+)', array(
+        'methods' => 'GET',
+        'callback' => 'anud_rest_api_get_menu',
+    ) );
+} );
+
+
 ?>

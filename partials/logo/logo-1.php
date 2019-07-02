@@ -35,7 +35,7 @@ style="height: 70px;"
 	<style type="text/css">
 
 svg {
-  filter: url('#dropshadow');
+  ffilter: url('#dropshadow');
   ffilter: drop-shadow( 0 2px 1px red );
   f-webkit-filter: drop-shadow( 0 2px 1px red );
 }
