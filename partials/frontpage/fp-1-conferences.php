@@ -1,8 +1,10 @@
 <section class="fp1-row fp1-conferences">
+
+
     <h1>Предстоящие конференции</h1>
 
-
 	<div class="events-container">
+<?php ///* ?>
 		<?php
             $events = tribe_get_events( array( 
                 'eventDisplay'=>'upcoming',
@@ -19,7 +21,7 @@
                 )
 
             ) );
-
+///*
             $events_list = array();
             foreach ( $events as $event ) {
         		$event->submission_open = !!get_post_meta($event->ID, 'submission_open', true);
@@ -69,6 +71,7 @@
                 </div>
             <?php
             }
+//*/
         ?>
 
 			    <!--div class="events-item entry-content" -style="position: relative;">
@@ -82,6 +85,7 @@
                     </div>
                 </div-->
 
+<?php //*/ ?>
     </div>
 
     <!--div class="events-all-link">
@@ -89,6 +93,5 @@
             Все конференции
         </a>
     </div-->
-
 
 </section>

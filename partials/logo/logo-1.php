@@ -87,8 +87,8 @@ svg:hover #wheel{
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Russo+One&subset=cyrillic');
-@import url('https://fonts.googleapis.com/css?family=Caveat&subset=cyrillic');
-@import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One&subset=cyrillic');
+//@import url('https://fonts.googleapis.com/css?family=Caveat&subset=cyrillic');
+//@import url('https://fonts.googleapis.com/css?family=Rubik+Mono+One&subset=cyrillic');
 
     text {
         fill: #07345b;
