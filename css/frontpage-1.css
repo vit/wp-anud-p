@@ -510,10 +510,8 @@
     background-size: auto 100vh;
     -background-position: center;
 
-    -background: url(https://images.unsplash.com/photo-1534450094358-51abce6b6327?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80) no-repeat center center fixed; 
-    -background: url(https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80) no-repeat center center fixed; 
-
-    background: url(http://www.elektropribor.spb.ru/upload/iblock/ec0/ec0cc4dbfe340c506228410648fee304.jpg) no-repeat center center fixed; 
+    -background: url(http://www.elektropribor.spb.ru/upload/iblock/ec0/ec0cc4dbfe340c506228410648fee304.jpg) no-repeat center center fixed; 
+    background: url(http://www.elektropribor.spb.ru/upload/iblock/ec0/ec0cc4dbfe340c506228410648fee304.jpg) no-repeat center center scroll; 
     -background: url(http://www.elektropribor.spb.ru/upload/iblock/b53/b5375192e41a7e5285d1244da3baab35.jpg) no-repeat center center fixed; 
 
 
