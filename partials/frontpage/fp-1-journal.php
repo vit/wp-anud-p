@@ -26,7 +26,7 @@
 		<div class="journal-item entry-content journal-item-links">
 		    <center>
                         <p>
-                        <a class="journal-button" href="<?php echo home_url( '/journal/#submit' ); ?>">
+                        <a class="journal-button" href="<?php echo home_url( '/journal/?utm_source=homepage&utm_medium=inner_site_link&utm_campaign=journal_submit_page&utm_content=journal_block#submit' ); ?>">
                             Подать статью
                         </a>
                         </p>
