@@ -1,5 +1,15 @@
 <section class="fp1-row fp1-news">
+
+<?php if( get_locale()=='ru_RU' ) { ?>
+<?php } else { ?>
+<?php } ?>
+
+
+<?php if( get_locale()=='ru_RU' ) { ?>
     <h1>Новости и сообщения</h1>
+<?php } else { ?>
+    <h1>News and Announcements</h1>
+<?php } ?>
 
 
     <div class="news-columns">
@@ -41,7 +51,11 @@
 
             <div class="news-news-bottom-link">
                 <a class="anud-button -half-transparent -news-button -button-secondary" href="<?php echo get_term_link( get_category_by_slug( "news" ) ); ?>">
+<?php if( get_locale()=='ru_RU' ) { ?>
                     Все новости
+<?php } else { ?>
+                    All News
+<?php } ?>
                 </a>
             </div>
 
@@ -73,7 +87,11 @@
 
                         <div class="news-gazeta-bottom-link">
                             <a class="anud-button -half-transparent -news-button -button-secondary" href="<?php echo get_term_link( get_category_by_slug( "gazeta" ) ); ?>">
+<?php if( get_locale()=='ru_RU' ) { ?>
                                 Все номера
+<?php } else { ?>
+                    			All Issues
+<?php } ?>
                             </a>
                         </div>
 
@@ -85,7 +103,11 @@
 
             </div>
         	<div class="news-notices-container entry-content">
+<?php if( get_locale()=='ru_RU' ) { ?>
                 <h2 class="entry-title">Сообщения</h3>
+<?php } else { ?>
+                <h2 class="entry-title">Announcements</h3>
+<?php } ?>
         	    <ul -style="list-style-type: none; margin: 0; padding: 0;">
 
     				<?php
@@ -109,7 +131,11 @@
         	    </ul>
                         <div class="news-notices-bottom-link"  -style="text-align: center;">
                             <a class="anud-button -half-transparent -news-button -button-secondary" href="<?php echo get_term_link( get_category_by_slug( "notices" ) ); ?>">
+<?php if( get_locale()=='ru_RU' ) { ?>
                                 Все сообщения
+<?php } else { ?>
+                    			All Announcements
+<?php } ?>
                             </a>
                         </div>
             </div>

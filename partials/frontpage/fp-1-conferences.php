@@ -1,7 +1,16 @@
 <section class="fp1-row fp1-conferences">
 
 
+<?php if( get_locale()=='ru_RU' ) { ?>
+<?php } else { ?>
+<?php } ?>
+
+
+<?php if( get_locale()=='ru_RU' ) { ?>
     <h1>Предстоящие конференции</h1>
+<?php } else { ?>
+    <h1>Upcoming Conferences</h1>
+<?php } ?>
 
 	<div class="events-container">
 <?php ///* ?>
