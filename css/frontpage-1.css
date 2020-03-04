@@ -98,7 +98,9 @@
     -background-attachment:fixed;
     background-size: auto 100vh;
     -background-position: center;
-    background: url(http://www.elektropribor.spb.ru/upload/iblock/9af/9af7501bdd6fb2d6c690ce43c777e5b7.png) no-repeat center center fixed; 
+    -background: url(http://www.elektropribor.spb.ru/upload/iblock/9af/9af7501bdd6fb2d6c690ce43c777e5b7.png) no-repeat center center fixed;
+    -background: url(http://www.elektropribor.spb.ru/upload/iblock/9af/9af7501bdd6fb2d6c690ce43c777e5b7.png) no-repeat center center local;
+    background: url(http://www.elektropribor.spb.ru/upload/iblock/9af/9af7501bdd6fb2d6c690ce43c777e5b7.png) no-repeat center center scroll;
 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -152,7 +154,8 @@
     -margin-bottom: 30px;
     -border: thin solid green;
     -background-color: #fff;
-    background-color: rgba(255,255,2555,0.9);
+    -background-color: rgba(255,255,2555,0.9);
+    background-color: rgba(255,255,2555,0.85);
     box-shadow: 1px 1px 4px #ddd;
     box-sizing: border-box;
 }
