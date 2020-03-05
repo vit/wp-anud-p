@@ -102,6 +102,8 @@
 				<?php wp_reset_postdata(); ?>
 
             </div>
+
+<?php /* ?>
         	<div class="news-notices-container entry-content">
 <?php if( get_locale()=='ru_RU' ) { ?>
                 <h2 class="entry-title">Сообщения</h3>
@@ -139,6 +141,9 @@
                             </a>
                         </div>
             </div>
+<? */ ?>
+
+
         </div>
 
     </div>

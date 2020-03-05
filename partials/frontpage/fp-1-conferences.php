@@ -1,3 +1,14 @@
+<?php if( get_locale()=='ru_RU' ) { ?>
+<section class="fp1-row">
+
+XXII конференция молодых ученых &quot;Навигация и управление
+движением&quot; (с международным участием) состоится 19-22 марта 2020 г.
+Срок приема рефератов закончился 1 февраля 2020 г.
+
+</section>
+<?php } else { ?>
+<?php } ?>
+
 <section class="fp1-row fp1-conferences">
 
 
@@ -14,6 +25,47 @@
 
 	<div class="events-container">
 <?php ///* ?>
+
+<?php if( get_locale()=='ru_RU' ) { ?>
+
+<?php ///* ?>
+			    <div class="events-item entry-content" -style="position: relative;">
+			        <div class="date" style="font-size: 120%;">
+25 &mdash; 27 мая
+			        </div>
+                    <h3>
+XXVII Санкт-Петербургская международная конференция по интегрированным навигационным системам (МКИНС-2020)
+                    </h3>
+                    <div class="event-content">
+<p>
+XXVII Санкт-Петербургская международная конференция по интегрированным навигационным системам пройдет в Санкт-Петербурге с 25 по 27 мая 2020 года.
+</p>
+
+<h4>ОРИЕНТИРОВОЧНАЯ ТЕМАТИКА КОНФЕРЕНЦИИ:</h4>
+
+<ul>
+<li>Инерциальные датчики, системы навигации и ориентации</li>
+<li>Интегрированные системы навигации и управления движением</li>
+<li>Глобальные навигационные спутниковые системы</li>
+<li>Средства гравиметрической поддержки навигации</li>
+</ul>
+
+<p>
+Возможно добавление других тематических направлений.
+</p>
+
+<p>
+Срок подачи докладов закончился 15 января 2020 г.
+</p>
+
+                    </div>
+                    <div -style="position: absolute; bottom: 0; padding: 10px;" style="text-align: right;">
+                    </div>
+                </div>
+<?php //*/ ?>
+
+<?php } else { ?>
+
 		<?php
             $events = tribe_get_events( array( 
                 'eventDisplay'=>'upcoming',
@@ -47,6 +99,8 @@
             foreach ( $events_list as $event ) {
         		//$submission_open = get_post_meta($event->ID, 'submission_open', true);
         		//$registration_open = get_post_meta($event->ID, 'registration_open', true);
+
+
             ?>
 			    <div class="events-item entry-content" -style="position: relative;">
 			        <div class="date" style="font-size: 120%;"><?php
@@ -79,9 +133,17 @@
                     </div>
                 </div>
             <?php
+
             }
 //*/
         ?>
+
+<?php } ?>
+
+
+
+
+
 
 			    <!--div class="events-item entry-content" -style="position: relative;">
                     <div style="text-align: right;">

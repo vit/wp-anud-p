@@ -101,11 +101,12 @@
     -background: url(http://www.elektropribor.spb.ru/upload/iblock/9af/9af7501bdd6fb2d6c690ce43c777e5b7.png) no-repeat center center fixed;
     -background: url(http://www.elektropribor.spb.ru/upload/iblock/9af/9af7501bdd6fb2d6c690ce43c777e5b7.png) no-repeat center center local;
     background: url(http://www.elektropribor.spb.ru/upload/iblock/9af/9af7501bdd6fb2d6c690ce43c777e5b7.png) no-repeat center center scroll;
+    background-size: 60%;
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    --webkit-background-size: cover;
+    --moz-background-size: cover;
+    --o-background-size: cover;
+    -background-size: cover;
 
 }
 
@@ -510,18 +511,25 @@
     -background: url(/wp-content/uploads/2019/04/IMGP3145-2019.jpg);
     -background-repeat: no-repeat;
     -background-attachment:fixed;
-    background-size: auto 100vh;
+
+    -background-size: auto 50vh;
+
     -background-position: center;
 
     -background: url(http://www.elektropribor.spb.ru/upload/iblock/ec0/ec0cc4dbfe340c506228410648fee304.jpg) no-repeat center center fixed; 
-    background: url(http://www.elektropribor.spb.ru/upload/iblock/ec0/ec0cc4dbfe340c506228410648fee304.jpg) no-repeat center center scroll; 
+    -background: url(http://www.elektropribor.spb.ru/upload/iblock/ec0/ec0cc4dbfe340c506228410648fee304.jpg) no-repeat center center scroll; 
+
+
+    background: url(https://acanud.ru/wp-content/uploads/2020/03/IMGP7255.jpg) no-repeat center center scroll; 
+    background-size: 60%;
+
     -background: url(http://www.elektropribor.spb.ru/upload/iblock/b53/b5375192e41a7e5285d1244da3baab35.jpg) no-repeat center center fixed; 
 
+    --webkit-background-size: cover;
+    --moz-background-size: cover;
+    --o-background-size: cover;
+    -background-size: cover;
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 
     display: flex;
     align-items: center;
