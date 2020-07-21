@@ -5,7 +5,7 @@
  Author:       Vitaliy Shiegin
  Author URI:   http://comsep.ru
  Template:     publisho
- Version:      0.0.5
+ Version:      0.0.6
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         
@@ -901,3 +901,9 @@ header#masthead {
     border: thin solid red;
 }
 */
+
+
+
+#tribe-events-pg-template .tribe-events-content ol li, #tribe-events-pg-template .tribe-events-content ul li, .tribe-events-after-html ol li, .tribe-events-after-html ul li, .tribe-events-before-html ol li, .tribe-events-before-html ul li {
+    margin: 0 0 0 20px !important;
+}
